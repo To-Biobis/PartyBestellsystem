@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "tisch": "3",
+    "produkt": "Pommes",
+    "menge": 1,
+    "kommentar": "",
+    "kategorie": 1,
+    "zeitpunkt": "2025-05-29T09:21:29.084784",
+    "status": "erledigt",
+    "erledigt_um": "2025-05-29T09:21:29.086782"
+  },
+  {
+    "id": 2,
+    "tisch": "1",
+    "produkt": "Schnitzel",
+    "menge": 1,
+    "kommentar": "",
+    "kategorie": 1,
+    "zeitpunkt": "2025-05-29T09:22:56.733981",
+    "status": "erledigt",
+    "erledigt_um": "2025-05-29T09:22:56.736091"
+  },
+  {
+    "id": 3,
+    "tisch": "1",
+    "produkt": "Weißbier",
+    "menge": 1,
+    "kommentar": "",
+    "kategorie": 2,
+    "zeitpunkt": "2025-05-29T09:22:56.733981",
+    "status": "erledigt",
+    "erledigt_um": "2025-05-29T09:22:56.736091"
+  },
+  {
+    "id": 4,
+    "tisch": "1",
+    "produkt": "Limo Weiß",
+    "menge": 1,
+    "kommentar": "",
+    "kategorie": 2,
+    "zeitpunkt": "2025-05-29T09:24:20.636995",
+    "status": "erledigt",
+    "erledigt_um": "2025-05-29T09:24:20.638995"
+  },
+  {
+    "id": 5,
+    "tisch": "1",
+    "produkt": "Limo Gelb",
+    "menge": 1,
+    "kommentar": "",
+    "kategorie": 2,
+    "zeitpunkt": "2025-05-29T09:24:20.637995",
+    "status": "erledigt",
+    "erledigt_um": "2025-05-29T09:24:20.638995"
+  }
+]

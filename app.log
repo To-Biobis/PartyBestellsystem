@@ -1,0 +1,1253 @@
+2025-05-29 07:35:24,188 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 07:35:24,188 - INFO - Daten geladen aus data\products.json: 4 Einträge
+2025-05-29 07:35:24,189 - INFO - Daten geladen aus data\orders.json: 0 Einträge
+2025-05-29 07:35:24,203 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 07:35:24,204 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 07:35:33,636 - INFO - 127.0.0.1 - - [29/May/2025 07:35:33] "[32mGET /new-table HTTP/1.1[0m" 302 -
+2025-05-29 07:35:33,645 - INFO - 127.0.0.1 - - [29/May/2025 07:35:33] "GET / HTTP/1.1" 200 -
+2025-05-29 07:35:37,453 - INFO - 127.0.0.1 - - [29/May/2025 07:35:37] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 07:35:37,458 - INFO - Bestellungen für Tisch 11: 0 Einträge
+2025-05-29 07:35:37,467 - INFO - 127.0.0.1 - - [29/May/2025 07:35:37] "GET /orders HTTP/1.1" 200 -
+2025-05-29 07:35:37,488 - INFO - 127.0.0.1 - - [29/May/2025 07:35:37] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 07:35:42,884 - INFO - Einzelbestellung erhalten - Tisch: 11, Produkt: 4, Menge: 1
+2025-05-29 07:35:42,884 - INFO - Bestellung hinzugefügt: {'id': 1, 'tisch': '11', 'produkt': 'Schnitzel', 'menge': 1, 'kommentar': '', 'kategorie': 1, 'zeitpunkt': '2025-05-29T07:35:42.884981', 'status': 'neu'}
+2025-05-29 07:35:42,885 - INFO - Daten gespeichert in data\orders.json: 1 Einträge
+2025-05-29 07:35:42,885 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 07:35:42,885 - INFO - Neuer Timer für Tisch 11 gestartet
+2025-05-29 07:35:42,886 - INFO - Bestellung erfolgreich verarbeitet für Tisch 11
+2025-05-29 07:35:42,886 - INFO - 127.0.0.1 - - [29/May/2025 07:35:42] "POST /orders HTTP/1.1" 200 -
+2025-05-29 07:35:44,787 - INFO - Einzelbestellung erhalten - Tisch: 11, Produkt: 4, Menge: 1
+2025-05-29 07:35:44,788 - INFO - Bestellung hinzugefügt: {'id': 2, 'tisch': '11', 'produkt': 'Schnitzel', 'menge': 1, 'kommentar': '', 'kategorie': 1, 'zeitpunkt': '2025-05-29T07:35:44.788958', 'status': 'neu'}
+2025-05-29 07:35:44,789 - INFO - Daten gespeichert in data\orders.json: 2 Einträge
+2025-05-29 07:35:44,789 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 07:35:44,789 - INFO - Bestehender Timer für Tisch 11 abgebrochen
+2025-05-29 07:35:44,789 - INFO - Neuer Timer für Tisch 11 gestartet
+2025-05-29 07:35:44,789 - INFO - Bestellung erfolgreich verarbeitet für Tisch 11
+2025-05-29 07:35:44,790 - INFO - 127.0.0.1 - - [29/May/2025 07:35:44] "POST /orders HTTP/1.1" 200 -
+2025-05-29 07:35:49,164 - INFO - Einzelbestellung erhalten - Tisch: 11, Produkt: 4, Menge: 1
+2025-05-29 07:35:49,165 - INFO - Bestellung hinzugefügt: {'id': 3, 'tisch': '11', 'produkt': 'Schnitzel', 'menge': 1, 'kommentar': '', 'kategorie': 1, 'zeitpunkt': '2025-05-29T07:35:49.165013', 'status': 'neu'}
+2025-05-29 07:35:49,166 - INFO - Daten gespeichert in data\orders.json: 3 Einträge
+2025-05-29 07:35:49,166 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 07:35:49,166 - INFO - Bestehender Timer für Tisch 11 abgebrochen
+2025-05-29 07:35:49,166 - INFO - Neuer Timer für Tisch 11 gestartet
+2025-05-29 07:35:49,167 - INFO - Bestellung erfolgreich verarbeitet für Tisch 11
+2025-05-29 07:35:49,167 - INFO - 127.0.0.1 - - [29/May/2025 07:35:49] "POST /orders HTTP/1.1" 200 -
+2025-05-29 07:36:05,737 - INFO - Mehrere Bestellungen erhalten für Tisch 11: 2 Bestellungen
+2025-05-29 07:36:05,738 - INFO - Bestellung hinzugefügt: {'id': 4, 'tisch': '11', 'produkt': 'Schnitzel', 'menge': 4, 'kommentar': '', 'kategorie': 1, 'zeitpunkt': '2025-05-29T07:36:05.737618', 'status': 'neu'}
+2025-05-29 07:36:05,738 - INFO - Bestellung hinzugefügt: {'id': 5, 'tisch': '11', 'produkt': 'Weißbier', 'menge': 3, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T07:36:05.738618', 'status': 'neu'}
+2025-05-29 07:36:05,739 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 07:36:05,739 - INFO - 2 Bestellungen erfolgreich gespeichert
+2025-05-29 07:36:05,739 - INFO - Bestehender Timer für Tisch 11 abgebrochen
+2025-05-29 07:36:05,740 - INFO - Neuer Timer für Tisch 11 gestartet
+2025-05-29 07:36:05,740 - INFO - 127.0.0.1 - - [29/May/2025 07:36:05] "POST /orders HTTP/1.1" 200 -
+2025-05-29 07:36:05,752 - INFO - Bestellungen für Tisch 11: 5 Einträge
+2025-05-29 07:36:05,753 - INFO - 127.0.0.1 - - [29/May/2025 07:36:05] "GET /orders HTTP/1.1" 200 -
+2025-05-29 07:36:05,782 - INFO - 127.0.0.1 - - [29/May/2025 07:36:05] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 07:36:13,557 - INFO - 127.0.0.1 - - [29/May/2025 07:36:13] "[32mGET /new-table HTTP/1.1[0m" 302 -
+2025-05-29 07:36:13,563 - INFO - 127.0.0.1 - - [29/May/2025 07:36:13] "GET / HTTP/1.1" 200 -
+2025-05-29 07:36:20,867 - INFO - 127.0.0.1 - - [29/May/2025 07:36:20] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 07:36:24,679 - INFO - 127.0.0.1 - - [29/May/2025 07:36:24] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 07:36:24,693 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 117, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 407, in admin_panel
+    return render_template('admin_panel.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\templates\admin_panel.html", line 276, in top-level template code
+    {{ now().strftime('%d.%m.%Y %H:%M') }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\utils.py", line 83, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'now' is undefined
+2025-05-29 07:36:24,698 - INFO - 127.0.0.1 - - [29/May/2025 07:36:24] "[35m[1mGET /admin HTTP/1.1[0m" 500 -
+2025-05-29 07:36:25,747 - INFO - Überprüfe Bestellungen für Tisch 11
+2025-05-29 07:36:25,747 - INFO - Bestellungen für Tisch 11 gefunden: 5
+2025-05-29 07:36:25,747 - INFO - DRUCK: Tisch 11 - 1x Schnitzel
+2025-05-29 07:36:25,748 - INFO - DRUCK: Tisch 11 - 1x Schnitzel
+2025-05-29 07:36:25,748 - INFO - DRUCK: Tisch 11 - 1x Schnitzel
+2025-05-29 07:36:25,748 - INFO - DRUCK: Tisch 11 - 4x Schnitzel
+2025-05-29 07:36:25,748 - INFO - DRUCK: Tisch 11 - 3x Weißbier
+2025-05-29 07:37:14,738 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 07:37:14,738 - INFO - Daten geladen aus data\products.json: 4 Einträge
+2025-05-29 07:37:14,739 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 07:37:14,753 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 07:37:14,754 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 07:37:19,185 - INFO - 192.168.178.122 - - [29/May/2025 07:37:19] "GET / HTTP/1.1" 200 -
+2025-05-29 07:37:20,223 - INFO - 192.168.178.122 - - [29/May/2025 07:37:20] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 07:37:24,135 - INFO - 192.168.178.122 - - [29/May/2025 07:37:24] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 07:37:24,148 - INFO - 192.168.178.122 - - [29/May/2025 07:37:24] "[32mGET /admin HTTP/1.1[0m" 302 -
+2025-05-29 07:37:24,176 - INFO - 192.168.178.122 - - [29/May/2025 07:37:24] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 07:37:31,823 - INFO - 192.168.178.122 - - [29/May/2025 07:37:31] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 07:37:31,837 - INFO - 192.168.178.122 - - [29/May/2025 07:37:31] "[32mGET /admin HTTP/1.1[0m" 302 -
+2025-05-29 07:37:31,855 - INFO - 192.168.178.122 - - [29/May/2025 07:37:31] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 07:38:21,528 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 07:38:21,529 - INFO - Daten geladen aus data\products.json: 4 Einträge
+2025-05-29 07:38:21,529 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 07:38:21,544 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 07:38:21,544 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 07:38:27,909 - INFO - Admin-Login-Versuch
+2025-05-29 07:38:27,981 - WARNING - Admin-Login fehlgeschlagen - falsches Passwort
+2025-05-29 07:38:27,986 - INFO - 192.168.178.122 - - [29/May/2025 07:38:27] "POST /admin/login HTTP/1.1" 200 -
+2025-05-29 07:38:32,434 - INFO - Admin-Login-Versuch
+2025-05-29 07:38:32,503 - INFO - Admin-Login erfolgreich
+2025-05-29 07:38:32,504 - INFO - 192.168.178.122 - - [29/May/2025 07:38:32] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 07:38:32,689 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:38:32,696 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 122, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 440, in admin_panel
+    return render_template('admin_panel.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\templates\admin_panel.html", line 276, in template
+    {{ now|strftime('%d.%m.%Y %H:%M') }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: No filter named 'strftime'.
+2025-05-29 07:38:32,701 - INFO - 192.168.178.122 - - [29/May/2025 07:38:32] "[35m[1mGET /admin HTTP/1.1[0m" 500 -
+2025-05-29 07:39:00,281 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:39:00,288 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 122, in decorated_function
+    if os.path.exists(temp_file):
+           ^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 440, in admin_panel
+    save_data(Config.PRODUCTS_FILE, produkte)
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\templates\admin_panel.html", line 276, in template
+    {{ now|strftime('%d.%m.%Y %H:%M') }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: No filter named 'strftime'.
+2025-05-29 07:39:00,292 - INFO - 192.168.178.122 - - [29/May/2025 07:39:00] "[35m[1mGET /admin HTTP/1.1[0m" 500 -
+2025-05-29 07:39:01,986 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:39:01,992 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 122, in decorated_function
+    if os.path.exists(temp_file):
+           ^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 440, in admin_panel
+    save_data(Config.PRODUCTS_FILE, produkte)
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\templates\admin_panel.html", line 276, in template
+    {{ now|strftime('%d.%m.%Y %H:%M') }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: No filter named 'strftime'.
+2025-05-29 07:39:01,996 - INFO - 192.168.178.122 - - [29/May/2025 07:39:01] "[35m[1mGET /admin HTTP/1.1[0m" 500 -
+2025-05-29 07:39:04,528 - INFO - 192.168.178.122 - - [29/May/2025 07:39:04] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 07:39:08,188 - INFO - Admin-Login-Versuch
+2025-05-29 07:39:08,257 - INFO - Admin-Login erfolgreich
+2025-05-29 07:39:08,258 - INFO - 192.168.178.122 - - [29/May/2025 07:39:08] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 07:39:08,274 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:39:08,281 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 122, in decorated_function
+    if os.path.exists(temp_file):
+           ^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 440, in admin_panel
+    save_data(Config.PRODUCTS_FILE, produkte)
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\templates\admin_panel.html", line 276, in template
+    {{ now|strftime('%d.%m.%Y %H:%M') }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: No filter named 'strftime'.
+2025-05-29 07:39:08,284 - INFO - 192.168.178.122 - - [29/May/2025 07:39:08] "[35m[1mGET /admin HTTP/1.1[0m" 500 -
+2025-05-29 07:39:17,267 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 07:39:17,268 - INFO - Daten geladen aus data\products.json: 4 Einträge
+2025-05-29 07:39:17,268 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 07:39:17,283 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 07:39:17,284 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 07:39:19,297 - INFO - 192.168.178.122 - - [29/May/2025 07:39:19] "[32mGET /admin HTTP/1.1[0m" 302 -
+2025-05-29 07:39:19,326 - INFO - 192.168.178.122 - - [29/May/2025 07:39:19] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 07:39:24,530 - INFO - Admin-Login-Versuch
+2025-05-29 07:39:24,599 - INFO - Admin-Login erfolgreich
+2025-05-29 07:39:24,600 - INFO - 192.168.178.122 - - [29/May/2025 07:39:24] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 07:39:24,691 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:39:24,701 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 132, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 450, in admin_panel
+    return render_template('admin_panel.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\templates\admin_panel.html", line 276, in top-level template code
+    {{ now|strftime('%d.%m.%Y %H:%M') }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 56, in strftime_filter
+    return date.strftime(format)
+           ^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'now' is undefined
+2025-05-29 07:39:24,706 - INFO - 192.168.178.122 - - [29/May/2025 07:39:24] "[35m[1mGET /admin HTTP/1.1[0m" 500 -
+2025-05-29 07:39:53,847 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 07:39:53,847 - INFO - Daten geladen aus data\products.json: 4 Einträge
+2025-05-29 07:39:53,847 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 07:39:53,861 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 07:39:53,862 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 07:39:55,936 - INFO - 192.168.178.122 - - [29/May/2025 07:39:55] "[32mGET /admin HTTP/1.1[0m" 302 -
+2025-05-29 07:39:55,961 - INFO - 192.168.178.122 - - [29/May/2025 07:39:55] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 07:40:00,369 - INFO - Admin-Login-Versuch
+2025-05-29 07:40:00,437 - INFO - Admin-Login erfolgreich
+2025-05-29 07:40:00,438 - INFO - 192.168.178.122 - - [29/May/2025 07:40:00] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 07:40:00,453 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:40:00,462 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 132, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 450, in admin_panel
+    return render_template('admin_panel.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\templates\admin_panel.html", line 276, in top-level template code
+    {{ now|strftime('%d.%m.%Y %H:%M') }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 56, in strftime_filter
+    return date.strftime(format)
+           ^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'strftime'
+2025-05-29 07:40:00,467 - INFO - 192.168.178.122 - - [29/May/2025 07:40:00] "[35m[1mGET /admin HTTP/1.1[0m" 500 -
+2025-05-29 07:40:27,384 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 07:40:27,384 - INFO - Daten geladen aus data\products.json: 4 Einträge
+2025-05-29 07:40:27,385 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 07:40:27,399 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 07:40:27,400 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 07:40:30,065 - INFO - Admin-Login-Versuch
+2025-05-29 07:40:30,134 - INFO - Admin-Login erfolgreich
+2025-05-29 07:40:30,135 - INFO - 192.168.178.122 - - [29/May/2025 07:40:30] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 07:40:30,166 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:40:30,177 - INFO - 192.168.178.122 - - [29/May/2025 07:40:30] "GET /admin HTTP/1.1" 200 -
+2025-05-29 07:59:07,839 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:59:07,840 - INFO - Daten gespeichert in data\products.json: 5 Einträge
+2025-05-29 07:59:07,841 - INFO - 192.168.178.122 - - [29/May/2025 07:59:07] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2025-05-29 07:59:07,855 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:59:07,856 - INFO - 192.168.178.122 - - [29/May/2025 07:59:07] "GET /admin HTTP/1.1" 200 -
+2025-05-29 07:59:34,464 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:59:34,465 - INFO - Daten gespeichert in data\products.json: 6 Einträge
+2025-05-29 07:59:34,466 - INFO - 192.168.178.122 - - [29/May/2025 07:59:34] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2025-05-29 07:59:34,477 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:59:34,478 - INFO - 192.168.178.122 - - [29/May/2025 07:59:34] "GET /admin HTTP/1.1" 200 -
+2025-05-29 07:59:46,565 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:59:46,566 - INFO - Daten gespeichert in data\products.json: 7 Einträge
+2025-05-29 07:59:46,567 - INFO - 192.168.178.122 - - [29/May/2025 07:59:46] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2025-05-29 07:59:46,579 - INFO - Admin-Panel aufgerufen
+2025-05-29 07:59:46,580 - INFO - 192.168.178.122 - - [29/May/2025 07:59:46] "GET /admin HTTP/1.1" 200 -
+2025-05-29 08:04:58,769 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 08:04:58,770 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 08:04:58,770 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 08:04:58,786 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 08:04:58,786 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 08:05:02,132 - INFO - 192.168.178.122 - - [29/May/2025 08:05:02] "GET / HTTP/1.1" 200 -
+2025-05-29 08:05:04,200 - INFO - 192.168.178.122 - - [29/May/2025 08:05:04] "GET / HTTP/1.1" 200 -
+2025-05-29 08:05:29,080 - INFO - 192.168.178.122 - - [29/May/2025 08:05:29] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 08:05:33,922 - INFO - Admin-Login-Versuch
+2025-05-29 08:05:33,989 - INFO - Admin-Login erfolgreich
+2025-05-29 08:05:33,990 - INFO - 192.168.178.122 - - [29/May/2025 08:05:33] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 08:05:34,008 - INFO - Admin-Panel aufgerufen
+2025-05-29 08:05:34,020 - INFO - 192.168.178.122 - - [29/May/2025 08:05:34] "GET /admin HTTP/1.1" 200 -
+2025-05-29 08:05:36,179 - INFO - Bestellungsverwaltung aufgerufen
+2025-05-29 08:05:36,187 - INFO - 192.168.178.122 - - [29/May/2025 08:05:36] "GET /order-management HTTP/1.1" 200 -
+2025-05-29 08:05:44,357 - INFO - Produkt 0 in Bestellung 5 als erledigt markiert
+2025-05-29 08:05:44,358 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 08:05:44,359 - INFO - 192.168.178.122 - - [29/May/2025 08:05:44] "POST /mark-product-done/5/0 HTTP/1.1" 200 -
+2025-05-29 08:05:45,265 - INFO - Produkt 0 in Bestellung 4 als erledigt markiert
+2025-05-29 08:05:45,266 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 08:05:45,266 - INFO - 192.168.178.122 - - [29/May/2025 08:05:45] "POST /mark-product-done/4/0 HTTP/1.1" 200 -
+2025-05-29 08:05:46,742 - INFO - Produkt 0 in Bestellung 3 als erledigt markiert
+2025-05-29 08:05:46,743 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 08:05:46,743 - INFO - 192.168.178.122 - - [29/May/2025 08:05:46] "POST /mark-product-done/3/0 HTTP/1.1" 200 -
+2025-05-29 08:05:47,404 - INFO - Produkt 0 in Bestellung 2 als erledigt markiert
+2025-05-29 08:05:47,405 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 08:05:47,406 - INFO - 192.168.178.122 - - [29/May/2025 08:05:47] "POST /mark-product-done/2/0 HTTP/1.1" 200 -
+2025-05-29 08:05:48,463 - INFO - Produkt 0 in Bestellung 1 als erledigt markiert
+2025-05-29 08:05:48,464 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 08:05:48,464 - INFO - 192.168.178.122 - - [29/May/2025 08:05:48] "POST /mark-product-done/1/0 HTTP/1.1" 200 -
+2025-05-29 08:05:50,192 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:05:50,192 - INFO - 192.168.178.122 - - [29/May/2025 08:05:50] "POST /delete-order/1 HTTP/1.1" 200 -
+2025-05-29 08:05:51,323 - INFO - Daten gespeichert in data\orders.json: 3 Einträge
+2025-05-29 08:05:51,324 - INFO - 192.168.178.122 - - [29/May/2025 08:05:51] "POST /delete-order/2 HTTP/1.1" 200 -
+2025-05-29 08:05:53,091 - INFO - Daten gespeichert in data\orders.json: 2 Einträge
+2025-05-29 08:05:53,092 - INFO - 192.168.178.122 - - [29/May/2025 08:05:53] "POST /delete-order/3 HTTP/1.1" 200 -
+2025-05-29 08:05:55,178 - INFO - Daten gespeichert in data\orders.json: 1 Einträge
+2025-05-29 08:05:55,178 - INFO - 192.168.178.122 - - [29/May/2025 08:05:55] "POST /delete-order/5 HTTP/1.1" 200 -
+2025-05-29 08:06:01,160 - INFO - Daten gespeichert in data\orders.json: 1 Einträge
+2025-05-29 08:06:01,160 - INFO - 192.168.178.122 - - [29/May/2025 08:06:01] "POST /update-order-status/5 HTTP/1.1" 200 -
+2025-05-29 08:06:01,183 - INFO - Bestellungsverwaltung aufgerufen
+2025-05-29 08:06:01,183 - INFO - 192.168.178.122 - - [29/May/2025 08:06:01] "GET /order-management HTTP/1.1" 200 -
+2025-05-29 08:06:01,851 - INFO - Bestellung 4 Status aktualisiert zu erledigt
+2025-05-29 08:06:01,852 - INFO - Daten gespeichert in data\orders.json: 1 Einträge
+2025-05-29 08:06:01,853 - INFO - 192.168.178.122 - - [29/May/2025 08:06:01] "POST /update-order-status/4 HTTP/1.1" 200 -
+2025-05-29 08:06:01,875 - INFO - Bestellungsverwaltung aufgerufen
+2025-05-29 08:06:01,876 - INFO - 192.168.178.122 - - [29/May/2025 08:06:01] "GET /order-management HTTP/1.1" 200 -
+2025-05-29 08:06:07,623 - INFO - Daten gespeichert in data\orders.json: 0 Einträge
+2025-05-29 08:06:07,624 - INFO - 192.168.178.122 - - [29/May/2025 08:06:07] "POST /delete-order/4 HTTP/1.1" 200 -
+2025-05-29 08:06:10,537 - INFO - Daten gespeichert in data\orders.json: 0 Einträge
+2025-05-29 08:06:10,538 - INFO - 192.168.178.122 - - [29/May/2025 08:06:10] "POST /update-order-status/4 HTTP/1.1" 200 -
+2025-05-29 08:06:10,570 - INFO - Bestellungsverwaltung aufgerufen
+2025-05-29 08:06:10,571 - INFO - 192.168.178.122 - - [29/May/2025 08:06:10] "GET /order-management HTTP/1.1" 200 -
+2025-05-29 08:06:40,658 - INFO - Bestellungsverwaltung aufgerufen
+2025-05-29 08:06:40,659 - INFO - 192.168.178.122 - - [29/May/2025 08:06:40] "GET /order-management HTTP/1.1" 200 -
+2025-05-29 08:07:17,179 - INFO - Bestellungsverwaltung aufgerufen
+2025-05-29 08:07:17,180 - INFO - 192.168.178.122 - - [29/May/2025 08:07:17] "GET /order-management HTTP/1.1" 200 -
+2025-05-29 08:08:15,133 - INFO - Bestellungsverwaltung aufgerufen
+2025-05-29 08:08:15,134 - INFO - 192.168.178.122 - - [29/May/2025 08:08:15] "GET /order-management HTTP/1.1" 200 -
+2025-05-29 08:08:45,289 - INFO - Bestellungsverwaltung aufgerufen
+2025-05-29 08:08:45,289 - INFO - 192.168.178.122 - - [29/May/2025 08:08:45] "GET /order-management HTTP/1.1" 200 -
+2025-05-29 08:11:04,133 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 08:11:04,133 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 08:11:04,133 - INFO - Daten geladen aus data\orders.json: 0 Einträge
+2025-05-29 08:11:04,148 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 08:11:04,148 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 08:11:09,147 - INFO - 192.168.178.122 - - [29/May/2025 08:11:09] "[33mGET /order-management HTTP/1.1[0m" 404 -
+2025-05-29 08:11:12,259 - INFO - 192.168.178.122 - - [29/May/2025 08:11:12] "[33mGET /order-management HTTP/1.1[0m" 404 -
+2025-05-29 08:11:17,928 - INFO - 192.168.178.122 - - [29/May/2025 08:11:17] "[32mPOST /update-order-status/1 HTTP/1.1[0m" 302 -
+2025-05-29 08:11:17,984 - INFO - 192.168.178.122 - - [29/May/2025 08:11:17] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 08:11:20,879 - INFO - 192.168.178.122 - - [29/May/2025 08:11:20] "[32mGET /admin HTTP/1.1[0m" 302 -
+2025-05-29 08:11:20,957 - INFO - 192.168.178.122 - - [29/May/2025 08:11:20] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 08:11:25,068 - INFO - Admin-Login-Versuch
+2025-05-29 08:11:25,138 - INFO - Admin-Login erfolgreich
+2025-05-29 08:11:25,139 - INFO - 192.168.178.122 - - [29/May/2025 08:11:25] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 08:11:25,156 - INFO - Admin-Panel aufgerufen
+2025-05-29 08:11:25,169 - ERROR - Exception on /admin [GET]
+Traceback (most recent call last):
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 134, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 452, in admin_panel
+    return render_template('admin_panel.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\jinja2\environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\templates\admin_panel.html", line 251, in top-level template code
+    <a href="{{ url_for('order_management') }}">Bestellungsverwaltung</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tobib\miniconda3\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'order_management'. Did you forget to specify values ['order_type']?
+2025-05-29 08:11:25,175 - INFO - 192.168.178.122 - - [29/May/2025 08:11:25] "[35m[1mGET /admin HTTP/1.1[0m" 500 -
+2025-05-29 08:11:33,412 - INFO - 192.168.178.122 - - [29/May/2025 08:11:33] "GET / HTTP/1.1" 200 -
+2025-05-29 08:18:20,502 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 08:18:20,502 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 08:18:20,503 - INFO - Daten geladen aus data\orders.json: 0 Einträge
+2025-05-29 08:18:20,516 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 08:18:20,516 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 08:18:22,906 - INFO - 192.168.178.122 - - [29/May/2025 08:18:22] "GET / HTTP/1.1" 200 -
+2025-05-29 08:18:27,179 - INFO - 192.168.178.122 - - [29/May/2025 08:18:27] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 08:18:31,982 - INFO - Admin-Login-Versuch
+2025-05-29 08:18:32,050 - WARNING - Admin-Login fehlgeschlagen - falsches Passwort
+2025-05-29 08:18:32,051 - INFO - 192.168.178.122 - - [29/May/2025 08:18:32] "POST /admin/login HTTP/1.1" 200 -
+2025-05-29 08:18:35,511 - INFO - Admin-Login-Versuch
+2025-05-29 08:18:35,578 - INFO - Admin-Login erfolgreich
+2025-05-29 08:18:35,579 - INFO - 192.168.178.122 - - [29/May/2025 08:18:35] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 08:18:39,458 - INFO - Admin-Panel aufgerufen
+2025-05-29 08:18:39,470 - INFO - 192.168.178.122 - - [29/May/2025 08:18:39] "GET /admin HTTP/1.1" 200 -
+2025-05-29 08:19:21,566 - INFO - 192.168.178.103 - - [29/May/2025 08:19:21] "GET / HTTP/1.1" 200 -
+2025-05-29 08:19:22,777 - INFO - 192.168.178.103 - - [29/May/2025 08:19:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-29 08:19:25,352 - INFO - 192.168.178.103 - - [29/May/2025 08:19:25] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 08:19:31,736 - INFO - Admin-Login-Versuch
+2025-05-29 08:19:31,806 - INFO - Admin-Login erfolgreich
+2025-05-29 08:19:31,807 - INFO - 192.168.178.103 - - [29/May/2025 08:19:31] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 08:19:31,911 - INFO - Admin-Panel aufgerufen
+2025-05-29 08:19:31,912 - INFO - 192.168.178.103 - - [29/May/2025 08:19:31] "GET /admin HTTP/1.1" 200 -
+2025-05-29 08:19:37,215 - INFO - Bestellungsverwaltung aufgerufen für trinken
+2025-05-29 08:19:37,224 - INFO - 192.168.178.103 - - [29/May/2025 08:19:37] "GET /order-management/trinken HTTP/1.1" 200 -
+2025-05-29 08:19:38,266 - INFO - 192.168.178.103 - - [29/May/2025 08:19:38] "GET /socket.io/?EIO=4&transport=polling&t=PSQia78 HTTP/1.1" 200 -
+2025-05-29 08:19:38,365 - INFO - Admin-WebSocket-Verbindung hergestellt
+2025-05-29 08:19:38,366 - INFO - 192.168.178.103 - - [29/May/2025 08:19:38] "POST /socket.io/?EIO=4&transport=polling&t=PSQiaAQ&sid=uQtM2L0lWxpuor_qAAAA HTTP/1.1" 200 -
+2025-05-29 08:19:38,395 - INFO - 192.168.178.103 - - [29/May/2025 08:19:38] "GET /socket.io/?EIO=4&transport=polling&t=PSQiaAk&sid=uQtM2L0lWxpuor_qAAAA HTTP/1.1" 200 -
+2025-05-29 08:19:38,490 - INFO - 192.168.178.103 - - [29/May/2025 08:19:38] "GET /socket.io/?EIO=4&transport=polling&t=PSQiaCR&sid=uQtM2L0lWxpuor_qAAAA HTTP/1.1" 200 -
+2025-05-29 08:19:57,396 - INFO - 192.168.178.122 - - [29/May/2025 08:19:57] "GET / HTTP/1.1" 200 -
+2025-05-29 08:20:04,721 - INFO - 192.168.178.122 - - [29/May/2025 08:20:04] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 08:20:04,735 - INFO - Bestellungen für Tisch 55: 0 Einträge
+2025-05-29 08:20:04,743 - INFO - 192.168.178.122 - - [29/May/2025 08:20:04] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:20:04,785 - INFO - 192.168.178.122 - - [29/May/2025 08:20:04] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:20:11,883 - INFO - Einzelbestellung erhalten - Tisch: 55, Produkt: 7, Menge: 1
+2025-05-29 08:20:11,884 - INFO - Bestellung hinzugefügt: {'id': 1, 'tisch': '55', 'produkt': 'Limo Gelb', 'menge': 1, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T08:20:11.884987', 'status': 'neu'}
+2025-05-29 08:20:11,885 - INFO - Daten gespeichert in data\orders.json: 1 Einträge
+2025-05-29 08:20:11,885 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 08:20:11,885 - INFO - Neuer Timer für Tisch 55 gestartet
+2025-05-29 08:20:11,885 - INFO - Bestellung erfolgreich verarbeitet für Tisch 55
+2025-05-29 08:20:11,886 - INFO - 192.168.178.122 - - [29/May/2025 08:20:11] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:20:16,267 - INFO - Einzelbestellung erhalten - Tisch: 55, Produkt: 5, Menge: 1
+2025-05-29 08:20:16,267 - INFO - Bestellung hinzugefügt: {'id': 2, 'tisch': '55', 'produkt': 'Pommes', 'menge': 1, 'kommentar': '', 'kategorie': 1, 'zeitpunkt': '2025-05-29T08:20:16.267742', 'status': 'neu'}
+2025-05-29 08:20:16,268 - INFO - Daten gespeichert in data\orders.json: 2 Einträge
+2025-05-29 08:20:16,269 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 08:20:16,269 - INFO - Bestehender Timer für Tisch 55 abgebrochen
+2025-05-29 08:20:16,269 - INFO - Neuer Timer für Tisch 55 gestartet
+2025-05-29 08:20:16,269 - INFO - Bestellung erfolgreich verarbeitet für Tisch 55
+2025-05-29 08:20:16,270 - INFO - 192.168.178.122 - - [29/May/2025 08:20:16] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:20:17,194 - INFO - Einzelbestellung erhalten - Tisch: 55, Produkt: 5, Menge: 1
+2025-05-29 08:20:17,195 - INFO - Bestellung hinzugefügt: {'id': 3, 'tisch': '55', 'produkt': 'Pommes', 'menge': 1, 'kommentar': '', 'kategorie': 1, 'zeitpunkt': '2025-05-29T08:20:17.195248', 'status': 'neu'}
+2025-05-29 08:20:17,196 - INFO - Daten gespeichert in data\orders.json: 3 Einträge
+2025-05-29 08:20:17,196 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 08:20:17,196 - INFO - Bestehender Timer für Tisch 55 abgebrochen
+2025-05-29 08:20:17,196 - INFO - Neuer Timer für Tisch 55 gestartet
+2025-05-29 08:20:17,196 - INFO - Bestellung erfolgreich verarbeitet für Tisch 55
+2025-05-29 08:20:17,197 - INFO - 192.168.178.122 - - [29/May/2025 08:20:17] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:20:29,754 - INFO - Mehrere Bestellungen erhalten für Tisch 55: 1 Bestellungen
+2025-05-29 08:20:29,755 - INFO - Bestellung hinzugefügt: {'id': 4, 'tisch': '55', 'produkt': 'Weißbier', 'menge': 1, 'kommentar': 'ohne Schaum', 'kategorie': 2, 'zeitpunkt': '2025-05-29T08:20:29.755406', 'status': 'neu'}
+2025-05-29 08:20:29,756 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:20:29,756 - INFO - 1 Bestellungen erfolgreich gespeichert
+2025-05-29 08:20:29,756 - INFO - Bestehender Timer für Tisch 55 abgebrochen
+2025-05-29 08:20:29,756 - INFO - Neuer Timer für Tisch 55 gestartet
+2025-05-29 08:20:29,757 - INFO - 192.168.178.122 - - [29/May/2025 08:20:29] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:20:29,791 - INFO - Bestellungen für Tisch 55: 4 Einträge
+2025-05-29 08:20:29,792 - INFO - 192.168.178.122 - - [29/May/2025 08:20:29] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:20:29,839 - INFO - 192.168.178.122 - - [29/May/2025 08:20:29] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:20:49,765 - INFO - Überprüfe Bestellungen für Tisch 55
+2025-05-29 08:20:49,765 - INFO - Bestellungen für Tisch 55 gefunden: 4
+2025-05-29 08:20:49,765 - INFO - DRUCK: Tisch 55 - 1x Limo Gelb
+2025-05-29 08:20:49,765 - INFO - DRUCK: Tisch 55 - 1x Pommes
+2025-05-29 08:20:49,766 - INFO - DRUCK: Tisch 55 - 1x Pommes
+2025-05-29 08:20:49,766 - INFO - DRUCK: Tisch 55 - 1x Weißbier
+2025-05-29 08:20:49,766 - INFO - Kommentar: ohne Schaum
+2025-05-29 08:20:59,948 - INFO - Bestellungen für Tisch 55: 4 Einträge
+2025-05-29 08:20:59,949 - INFO - 192.168.178.122 - - [29/May/2025 08:20:59] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:20:59,972 - INFO - 192.168.178.122 - - [29/May/2025 08:20:59] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:22:17,150 - INFO - Bestellungen für Tisch 55: 4 Einträge
+2025-05-29 08:22:17,151 - INFO - 192.168.178.122 - - [29/May/2025 08:22:17] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:22:17,399 - INFO - 192.168.178.122 - - [29/May/2025 08:22:17] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:22:27,640 - INFO - Einzelbestellung erhalten - Tisch: 55, Produkt: 6, Menge: 1
+2025-05-29 08:22:27,641 - INFO - Bestellung hinzugefügt: {'id': 5, 'tisch': '55', 'produkt': 'Limo Weiß', 'menge': 1, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T08:22:27.641463', 'status': 'neu'}
+2025-05-29 08:22:27,642 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 08:22:27,642 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 08:22:27,642 - INFO - Neuer Timer für Tisch 55 gestartet
+2025-05-29 08:22:27,642 - INFO - Bestellung erfolgreich verarbeitet für Tisch 55
+2025-05-29 08:22:27,643 - INFO - 192.168.178.122 - - [29/May/2025 08:22:27] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:22:30,818 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:22:30,818 - INFO - 192.168.178.122 - - [29/May/2025 08:22:30] "POST /delete-order/5 HTTP/1.1" 200 -
+2025-05-29 08:22:31,802 - INFO - Daten gespeichert in data\orders.json: 3 Einträge
+2025-05-29 08:22:31,803 - INFO - 192.168.178.122 - - [29/May/2025 08:22:31] "POST /delete-order/1 HTTP/1.1" 200 -
+2025-05-29 08:22:32,773 - INFO - Daten gespeichert in data\orders.json: 2 Einträge
+2025-05-29 08:22:32,774 - INFO - 192.168.178.122 - - [29/May/2025 08:22:32] "POST /delete-order/2 HTTP/1.1" 200 -
+2025-05-29 08:22:33,779 - INFO - Daten gespeichert in data\orders.json: 1 Einträge
+2025-05-29 08:22:33,780 - INFO - 192.168.178.122 - - [29/May/2025 08:22:33] "POST /delete-order/3 HTTP/1.1" 200 -
+2025-05-29 08:22:35,128 - INFO - Daten gespeichert in data\orders.json: 0 Einträge
+2025-05-29 08:22:35,129 - INFO - 192.168.178.122 - - [29/May/2025 08:22:35] "POST /delete-order/4 HTTP/1.1" 200 -
+2025-05-29 08:22:44,181 - INFO - Einzelbestellung erhalten - Tisch: 55, Produkt: 3, Menge: 1
+2025-05-29 08:22:44,182 - INFO - Bestellung hinzugefügt: {'id': 1, 'tisch': '55', 'produkt': 'Weißbier', 'menge': 1, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T08:22:44.182291', 'status': 'neu'}
+2025-05-29 08:22:44,183 - INFO - Daten gespeichert in data\orders.json: 1 Einträge
+2025-05-29 08:22:44,183 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 08:22:44,183 - INFO - Bestehender Timer für Tisch 55 abgebrochen
+2025-05-29 08:22:44,183 - INFO - Neuer Timer für Tisch 55 gestartet
+2025-05-29 08:22:44,183 - INFO - Bestellung erfolgreich verarbeitet für Tisch 55
+2025-05-29 08:22:44,184 - INFO - 192.168.178.122 - - [29/May/2025 08:22:44] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:22:47,643 - INFO - Bestellungen für Tisch 55: 1 Einträge
+2025-05-29 08:22:47,644 - INFO - 192.168.178.122 - - [29/May/2025 08:22:47] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:22:47,683 - INFO - 192.168.178.122 - - [29/May/2025 08:22:47] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:22:48,065 - INFO - Einzelbestellung erhalten - Tisch: 55, Produkt: 6, Menge: 1
+2025-05-29 08:22:48,065 - INFO - Bestellung hinzugefügt: {'id': 2, 'tisch': '55', 'produkt': 'Limo Weiß', 'menge': 1, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T08:22:48.065572', 'status': 'neu'}
+2025-05-29 08:22:48,065 - INFO - Daten gespeichert in data\orders.json: 2 Einträge
+2025-05-29 08:22:48,066 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 08:22:48,066 - INFO - Bestehender Timer für Tisch 55 abgebrochen
+2025-05-29 08:22:48,067 - INFO - Neuer Timer für Tisch 55 gestartet
+2025-05-29 08:22:48,067 - INFO - Bestellung erfolgreich verarbeitet für Tisch 55
+2025-05-29 08:22:48,067 - INFO - 192.168.178.122 - - [29/May/2025 08:22:48] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:22:53,419 - INFO - Einzelbestellung erhalten - Tisch: 55, Produkt: 5, Menge: 1
+2025-05-29 08:22:53,419 - INFO - Bestellung hinzugefügt: {'id': 3, 'tisch': '55', 'produkt': 'Pommes', 'menge': 1, 'kommentar': '', 'kategorie': 1, 'zeitpunkt': '2025-05-29T08:22:53.419597', 'status': 'neu'}
+2025-05-29 08:22:53,420 - INFO - Daten gespeichert in data\orders.json: 3 Einträge
+2025-05-29 08:22:53,420 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 08:22:53,421 - INFO - Bestehender Timer für Tisch 55 abgebrochen
+2025-05-29 08:22:53,421 - INFO - Neuer Timer für Tisch 55 gestartet
+2025-05-29 08:22:53,421 - INFO - Bestellung erfolgreich verarbeitet für Tisch 55
+2025-05-29 08:22:53,422 - INFO - 192.168.178.122 - - [29/May/2025 08:22:53] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:22:53,990 - INFO - Einzelbestellung erhalten - Tisch: 55, Produkt: 5, Menge: 1
+2025-05-29 08:22:53,991 - INFO - Bestellung hinzugefügt: {'id': 4, 'tisch': '55', 'produkt': 'Pommes', 'menge': 1, 'kommentar': '', 'kategorie': 1, 'zeitpunkt': '2025-05-29T08:22:53.991508', 'status': 'neu'}
+2025-05-29 08:22:53,992 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:22:53,992 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 08:22:53,992 - INFO - Bestehender Timer für Tisch 55 abgebrochen
+2025-05-29 08:22:53,992 - INFO - Neuer Timer für Tisch 55 gestartet
+2025-05-29 08:22:53,992 - INFO - Bestellung erfolgreich verarbeitet für Tisch 55
+2025-05-29 08:22:53,993 - INFO - 192.168.178.122 - - [29/May/2025 08:22:53] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:23:00,116 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "GET /socket.io/?EIO=4&transport=websocket&sid=uQtM2L0lWxpuor_qAAAA HTTP/1.1" 200 -
+2025-05-29 08:23:00,168 - INFO - Bestellungsverwaltung aufgerufen für trinken
+2025-05-29 08:23:00,169 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "GET /order-management/trinken HTTP/1.1" 200 -
+2025-05-29 08:23:00,313 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "GET /socket.io/?EIO=4&transport=polling&t=PSQjLTu HTTP/1.1" 200 -
+2025-05-29 08:23:00,344 - INFO - Admin-WebSocket-Verbindung hergestellt
+2025-05-29 08:23:00,345 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "POST /socket.io/?EIO=4&transport=polling&t=PSQjLUZ&sid=8Qm43TBssLJuTyamAAAC HTTP/1.1" 200 -
+2025-05-29 08:23:00,346 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "GET /socket.io/?EIO=4&transport=polling&t=PSQjLUb&sid=8Qm43TBssLJuTyamAAAC HTTP/1.1" 200 -
+2025-05-29 08:23:00,395 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "GET /socket.io/?EIO=4&transport=websocket&sid=8Qm43TBssLJuTyamAAAC HTTP/1.1" 200 -
+2025-05-29 08:23:00,423 - INFO - Bestellungsverwaltung aufgerufen für trinken
+2025-05-29 08:23:00,423 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "GET /order-management/trinken HTTP/1.1" 200 -
+2025-05-29 08:23:00,482 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "GET /socket.io/?EIO=4&transport=polling&t=PSQjLWi HTTP/1.1" 200 -
+2025-05-29 08:23:00,508 - INFO - Admin-WebSocket-Verbindung hergestellt
+2025-05-29 08:23:00,509 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "POST /socket.io/?EIO=4&transport=polling&t=PSQjLX6&sid=ZjPaW0qIHBrPHXAFAAAE HTTP/1.1" 200 -
+2025-05-29 08:23:00,509 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "GET /socket.io/?EIO=4&transport=polling&t=PSQjLXB&sid=ZjPaW0qIHBrPHXAFAAAE HTTP/1.1" 200 -
+2025-05-29 08:23:00,529 - INFO - 192.168.178.103 - - [29/May/2025 08:23:00] "GET /socket.io/?EIO=4&transport=polling&t=PSQjLXa&sid=ZjPaW0qIHBrPHXAFAAAE HTTP/1.1" 200 -
+2025-05-29 08:23:05,166 - INFO - 192.168.178.103 - - [29/May/2025 08:23:05] "GET /socket.io/?EIO=4&transport=websocket&sid=ZjPaW0qIHBrPHXAFAAAE HTTP/1.1" 200 -
+2025-05-29 08:23:05,177 - INFO - Bestellungsverwaltung aufgerufen für trinken
+2025-05-29 08:23:05,178 - INFO - 192.168.178.103 - - [29/May/2025 08:23:05] "GET /order-management/trinken HTTP/1.1" 200 -
+2025-05-29 08:23:05,262 - INFO - 192.168.178.103 - - [29/May/2025 08:23:05] "GET /socket.io/?EIO=4&transport=polling&t=PSQjMhS HTTP/1.1" 200 -
+2025-05-29 08:23:05,289 - INFO - Admin-WebSocket-Verbindung hergestellt
+2025-05-29 08:23:05,290 - INFO - 192.168.178.103 - - [29/May/2025 08:23:05] "POST /socket.io/?EIO=4&transport=polling&t=PSQjMhq&sid=r8YuJ2exkuoYInAhAAAG HTTP/1.1" 200 -
+2025-05-29 08:23:05,291 - INFO - 192.168.178.103 - - [29/May/2025 08:23:05] "GET /socket.io/?EIO=4&transport=polling&t=PSQjMhs&sid=r8YuJ2exkuoYInAhAAAG HTTP/1.1" 200 -
+2025-05-29 08:23:05,347 - INFO - 192.168.178.103 - - [29/May/2025 08:23:05] "GET /socket.io/?EIO=4&transport=polling&t=PSQjMio&sid=r8YuJ2exkuoYInAhAAAG HTTP/1.1" 200 -
+2025-05-29 08:23:06,364 - INFO - 192.168.178.103 - - [29/May/2025 08:23:06] "GET /socket.io/?EIO=4&transport=websocket&sid=r8YuJ2exkuoYInAhAAAG HTTP/1.1" 200 -
+2025-05-29 08:23:06,376 - INFO - Bestellungsverwaltung aufgerufen für trinken
+2025-05-29 08:23:06,377 - INFO - 192.168.178.103 - - [29/May/2025 08:23:06] "GET /order-management/trinken HTTP/1.1" 200 -
+2025-05-29 08:23:06,428 - INFO - 192.168.178.103 - - [29/May/2025 08:23:06] "GET /socket.io/?EIO=4&transport=polling&t=PSQjMzk HTTP/1.1" 200 -
+2025-05-29 08:23:06,453 - INFO - Admin-WebSocket-Verbindung hergestellt
+2025-05-29 08:23:06,455 - INFO - 192.168.178.103 - - [29/May/2025 08:23:06] "POST /socket.io/?EIO=4&transport=polling&t=PSQjM-2&sid=ZOg413Oe3M7zHD2IAAAI HTTP/1.1" 200 -
+2025-05-29 08:23:06,458 - INFO - 192.168.178.103 - - [29/May/2025 08:23:06] "GET /socket.io/?EIO=4&transport=polling&t=PSQjM-4&sid=ZOg413Oe3M7zHD2IAAAI HTTP/1.1" 200 -
+2025-05-29 08:23:06,476 - INFO - 192.168.178.103 - - [29/May/2025 08:23:06] "GET /socket.io/?EIO=4&transport=polling&t=PSQjM-U&sid=ZOg413Oe3M7zHD2IAAAI HTTP/1.1" 200 -
+2025-05-29 08:23:13,993 - INFO - Überprüfe Bestellungen für Tisch 55
+2025-05-29 08:23:13,993 - INFO - Bestellungen für Tisch 55 gefunden: 4
+2025-05-29 08:23:13,993 - INFO - DRUCK: Tisch 55 - 1x Weißbier
+2025-05-29 08:23:13,994 - INFO - DRUCK: Tisch 55 - 1x Limo Weiß
+2025-05-29 08:23:13,994 - INFO - DRUCK: Tisch 55 - 1x Pommes
+2025-05-29 08:23:13,994 - INFO - DRUCK: Tisch 55 - 1x Pommes
+2025-05-29 08:23:17,740 - INFO - 192.168.178.122 - - [29/May/2025 08:23:17] "[32mGET /new-table HTTP/1.1[0m" 302 -
+2025-05-29 08:23:17,755 - INFO - 192.168.178.122 - - [29/May/2025 08:23:17] "GET / HTTP/1.1" 200 -
+2025-05-29 08:23:37,600 - INFO - Produkt 0 in Bestellung 2 Status aktualisiert
+2025-05-29 08:23:37,601 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:23:38,406 - INFO - Produkt 0 in Bestellung 1 Status aktualisiert
+2025-05-29 08:23:38,408 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:23:40,006 - INFO - Bestellung 2 Status aktualisiert zu erledigt
+2025-05-29 08:23:40,007 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:23:42,019 - INFO - Bestellung 1 Status aktualisiert zu erledigt
+2025-05-29 08:23:42,020 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:23:43,824 - INFO - 192.168.178.103 - - [29/May/2025 08:23:43] "GET /socket.io/?EIO=4&transport=websocket&sid=ZOg413Oe3M7zHD2IAAAI HTTP/1.1" 200 -
+2025-05-29 08:23:43,864 - INFO - Bestellungsverwaltung aufgerufen für trinken
+2025-05-29 08:23:43,864 - INFO - 192.168.178.103 - - [29/May/2025 08:23:43] "GET /order-management/trinken HTTP/1.1" 200 -
+2025-05-29 08:23:43,922 - INFO - 192.168.178.103 - - [29/May/2025 08:23:43] "GET /socket.io/?EIO=4&transport=polling&t=PSQjW7Z HTTP/1.1" 200 -
+2025-05-29 08:23:43,943 - INFO - Admin-WebSocket-Verbindung hergestellt
+2025-05-29 08:23:43,943 - INFO - 192.168.178.103 - - [29/May/2025 08:23:43] "POST /socket.io/?EIO=4&transport=polling&t=PSQjW7u&sid=mwYsHMJa9qatJ9JzAAAK HTTP/1.1" 200 -
+2025-05-29 08:23:43,948 - INFO - 192.168.178.103 - - [29/May/2025 08:23:43] "GET /socket.io/?EIO=4&transport=polling&t=PSQjW7w&sid=mwYsHMJa9qatJ9JzAAAK HTTP/1.1" 200 -
+2025-05-29 08:23:57,024 - INFO - 192.168.178.122 - - [29/May/2025 08:23:57] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 08:23:57,073 - INFO - Bestellungen für Tisch 6: 0 Einträge
+2025-05-29 08:23:57,074 - INFO - 192.168.178.122 - - [29/May/2025 08:23:57] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:23:57,151 - INFO - 192.168.178.122 - - [29/May/2025 08:23:57] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:24:09,664 - INFO - Mehrere Bestellungen erhalten für Tisch 6: 1 Bestellungen
+2025-05-29 08:24:09,665 - INFO - Bestellung hinzugefügt: {'id': 5, 'tisch': '6', 'produkt': 'Limo Weiß', 'menge': 1, 'kommentar': 'ein Liter', 'kategorie': 2, 'zeitpunkt': '2025-05-29T08:24:09.665355', 'status': 'neu'}
+2025-05-29 08:24:09,666 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 08:24:09,666 - INFO - 1 Bestellungen erfolgreich gespeichert
+2025-05-29 08:24:09,666 - INFO - Neuer Timer für Tisch 6 gestartet
+2025-05-29 08:24:09,666 - INFO - 192.168.178.122 - - [29/May/2025 08:24:09] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:24:09,727 - INFO - Bestellungen für Tisch 6: 1 Einträge
+2025-05-29 08:24:09,728 - INFO - 192.168.178.122 - - [29/May/2025 08:24:09] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:24:09,791 - INFO - 192.168.178.122 - - [29/May/2025 08:24:09] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:24:19,477 - INFO - 192.168.178.103 - - [29/May/2025 08:24:19] "GET /socket.io/?EIO=4&transport=websocket&sid=mwYsHMJa9qatJ9JzAAAK HTTP/1.1" 200 -
+2025-05-29 08:24:19,513 - INFO - Bestellungsverwaltung aufgerufen für trinken
+2025-05-29 08:24:19,513 - INFO - 192.168.178.103 - - [29/May/2025 08:24:19] "GET /order-management/trinken HTTP/1.1" 200 -
+2025-05-29 08:24:19,626 - INFO - 192.168.178.103 - - [29/May/2025 08:24:19] "GET /socket.io/?EIO=4&transport=polling&t=PSQjerM HTTP/1.1" 200 -
+2025-05-29 08:24:19,651 - INFO - Admin-WebSocket-Verbindung hergestellt
+2025-05-29 08:24:19,651 - INFO - 192.168.178.103 - - [29/May/2025 08:24:19] "POST /socket.io/?EIO=4&transport=polling&t=PSQjerr&sid=xJ3Xm8cyPzk6tPYMAAAM HTTP/1.1" 200 -
+2025-05-29 08:24:19,654 - INFO - 192.168.178.103 - - [29/May/2025 08:24:19] "GET /socket.io/?EIO=4&transport=polling&t=PSQjert&sid=xJ3Xm8cyPzk6tPYMAAAM HTTP/1.1" 200 -
+2025-05-29 08:24:28,591 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:24:29,671 - INFO - Überprüfe Bestellungen für Tisch 6
+2025-05-29 08:24:29,671 - INFO - Keine Bestellungen für Tisch 6 gefunden
+2025-05-29 08:24:34,862 - INFO - Bestellung 2 Status aktualisiert zu archiviert
+2025-05-29 08:24:34,863 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:24:37,172 - INFO - Bestellung 1 Status aktualisiert zu archiviert
+2025-05-29 08:24:37,173 - INFO - Daten gespeichert in data\orders.json: 4 Einträge
+2025-05-29 08:24:39,873 - INFO - Bestellungen für Tisch 6: 0 Einträge
+2025-05-29 08:24:39,874 - INFO - 192.168.178.122 - - [29/May/2025 08:24:39] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:24:39,904 - INFO - 192.168.178.122 - - [29/May/2025 08:24:39] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:24:40,635 - INFO - Einzelbestellung erhalten - Tisch: 6, Produkt: 6, Menge: 1
+2025-05-29 08:24:40,635 - INFO - Bestellung hinzugefügt: {'id': 5, 'tisch': '6', 'produkt': 'Limo Weiß', 'menge': 1, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T08:24:40.635808', 'status': 'neu'}
+2025-05-29 08:24:40,636 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 08:24:40,636 - INFO - Bestellungen erfolgreich in Datei gespeichert
+2025-05-29 08:24:40,637 - INFO - Neuer Timer für Tisch 6 gestartet
+2025-05-29 08:24:40,637 - INFO - Bestellung erfolgreich verarbeitet für Tisch 6
+2025-05-29 08:24:40,637 - INFO - 192.168.178.122 - - [29/May/2025 08:24:40] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:24:44,454 - INFO - 192.168.178.122 - - [29/May/2025 08:24:44] "[32mGET /new-table HTTP/1.1[0m" 302 -
+2025-05-29 08:24:44,477 - INFO - 192.168.178.122 - - [29/May/2025 08:24:44] "GET / HTTP/1.1" 200 -
+2025-05-29 08:24:52,091 - INFO - 192.168.178.103 - - [29/May/2025 08:24:52] "GET /socket.io/?EIO=4&transport=websocket&sid=xJ3Xm8cyPzk6tPYMAAAM HTTP/1.1" 200 -
+2025-05-29 08:24:52,109 - INFO - 192.168.178.103 - - [29/May/2025 08:24:52] "GET / HTTP/1.1" 200 -
+2025-05-29 08:24:53,737 - INFO - 192.168.178.103 - - [29/May/2025 08:24:53] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 08:24:58,703 - INFO - Admin-Login-Versuch
+2025-05-29 08:24:58,771 - INFO - Admin-Login erfolgreich
+2025-05-29 08:24:58,772 - INFO - 192.168.178.103 - - [29/May/2025 08:24:58] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-05-29 08:24:58,802 - INFO - Admin-Panel aufgerufen
+2025-05-29 08:24:58,802 - INFO - 192.168.178.103 - - [29/May/2025 08:24:58] "GET /admin HTTP/1.1" 200 -
+2025-05-29 08:25:00,650 - INFO - Überprüfe Bestellungen für Tisch 6
+2025-05-29 08:25:00,650 - INFO - Bestellungen für Tisch 6 gefunden: 1
+2025-05-29 08:25:00,650 - INFO - DRUCK: Tisch 6 - 1x Limo Weiß
+2025-05-29 08:25:01,021 - INFO - Bestellungsverwaltung aufgerufen für essen
+2025-05-29 08:25:01,021 - INFO - 192.168.178.103 - - [29/May/2025 08:25:01] "GET /order-management/essen HTTP/1.1" 200 -
+2025-05-29 08:25:01,080 - INFO - 192.168.178.103 - - [29/May/2025 08:25:01] "GET /socket.io/?EIO=4&transport=polling&t=PSQjozD HTTP/1.1" 200 -
+2025-05-29 08:25:01,105 - INFO - Admin-WebSocket-Verbindung hergestellt
+2025-05-29 08:25:01,105 - INFO - 192.168.178.103 - - [29/May/2025 08:25:01] "POST /socket.io/?EIO=4&transport=polling&t=PSQjozc&sid=uRIdytxFwSz3wapzAAAO HTTP/1.1" 200 -
+2025-05-29 08:25:01,110 - INFO - 192.168.178.103 - - [29/May/2025 08:25:01] "GET /socket.io/?EIO=4&transport=polling&t=PSQjoze&sid=uRIdytxFwSz3wapzAAAO HTTP/1.1" 200 -
+2025-05-29 08:25:01,129 - INFO - 192.168.178.103 - - [29/May/2025 08:25:01] "GET /socket.io/?EIO=4&transport=polling&t=PSQjo-2&sid=uRIdytxFwSz3wapzAAAO HTTP/1.1" 200 -
+2025-05-29 08:35:30,962 - INFO - 192.168.178.103 - - [29/May/2025 08:35:30] "GET /socket.io/?EIO=4&transport=websocket&sid=uRIdytxFwSz3wapzAAAO HTTP/1.1" 200 -
+2025-05-29 08:56:48,605 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 08:56:48,606 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 08:56:48,606 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 08:56:48,619 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 08:56:48,619 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 08:56:58,531 - INFO - 127.0.0.1 - - [29/May/2025 08:56:58] "[32mGET /admin HTTP/1.1[0m" 302 -
+2025-05-29 08:56:58,541 - INFO - 127.0.0.1 - - [29/May/2025 08:56:58] "GET /admin/login HTTP/1.1" 200 -
+2025-05-29 08:57:00,525 - INFO - 127.0.0.1 - - [29/May/2025 08:57:00] "GET / HTTP/1.1" 200 -
+2025-05-29 08:57:03,743 - INFO - 127.0.0.1 - - [29/May/2025 08:57:03] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 08:57:03,748 - INFO - Bestellungen für Tisch 3: 0 Einträge
+2025-05-29 08:57:03,758 - INFO - 127.0.0.1 - - [29/May/2025 08:57:03] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:57:03,784 - INFO - 127.0.0.1 - - [29/May/2025 08:57:03] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:57:14,325 - INFO - Mehrere Bestellungen erhalten für Tisch 3: 2 Bestellungen
+2025-05-29 08:57:14,325 - INFO - Bestellung hinzugefügt: {'id': 6, 'tisch': '3', 'produkt': 'Weißbier', 'menge': 4, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T08:57:14.325875', 'status': 'neu'}
+2025-05-29 08:57:14,326 - INFO - Bestellung hinzugefügt: {'id': 7, 'tisch': '3', 'produkt': 'Limo Weiß', 'menge': 2, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T08:57:14.326886', 'status': 'neu'}
+2025-05-29 08:57:14,327 - INFO - Daten gespeichert in data\orders.json: 7 Einträge
+2025-05-29 08:57:14,327 - INFO - 2 Bestellungen erfolgreich gespeichert
+2025-05-29 08:57:14,327 - INFO - Überprüfe Bestellungen für Tisch 3
+2025-05-29 08:57:14,327 - INFO - Neue Bestellungen für Tisch 3 gefunden: 2
+2025-05-29 08:57:14,362 - ERROR - Fehler beim Drucken für Tisch 3: [WinError 1155] Der angegebenen Datei ist keine Anwendung zugeordnet: 'data\\print_tisch_3.html'
+2025-05-29 08:57:14,363 - INFO - Timer für Tisch 3 neu gestartet
+2025-05-29 08:57:14,363 - INFO - Neuer Druck-Timer für Tisch 3 gestartet
+2025-05-29 08:57:14,364 - INFO - 127.0.0.1 - - [29/May/2025 08:57:14] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:57:14,375 - INFO - Bestellungen für Tisch 3: 2 Einträge
+2025-05-29 08:57:14,376 - INFO - 127.0.0.1 - - [29/May/2025 08:57:14] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:57:14,400 - INFO - 127.0.0.1 - - [29/May/2025 08:57:14] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:57:19,596 - INFO - Bestellungen für Tisch 3: 2 Einträge
+2025-05-29 08:57:19,597 - INFO - 127.0.0.1 - - [29/May/2025 08:57:19] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:57:19,621 - INFO - 127.0.0.1 - - [29/May/2025 08:57:19] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:57:44,366 - INFO - Überprüfe Bestellungen für Tisch 3
+2025-05-29 08:57:44,366 - INFO - Neue Bestellungen für Tisch 3 gefunden: 2
+2025-05-29 08:57:44,386 - ERROR - Fehler beim Drucken für Tisch 3: [WinError 1155] Der angegebenen Datei ist keine Anwendung zugeordnet: 'data\\print_tisch_3.html'
+2025-05-29 08:57:44,387 - INFO - Timer für Tisch 3 neu gestartet
+2025-05-29 08:57:50,017 - INFO - Bestellungen für Tisch 3: 2 Einträge
+2025-05-29 08:57:50,017 - INFO - 127.0.0.1 - - [29/May/2025 08:57:50] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:57:50,040 - INFO - 127.0.0.1 - - [29/May/2025 08:57:50] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:58:14,392 - INFO - Überprüfe Bestellungen für Tisch 3
+2025-05-29 08:58:14,392 - INFO - Neue Bestellungen für Tisch 3 gefunden: 2
+2025-05-29 08:58:14,412 - ERROR - Fehler beim Drucken für Tisch 3: [WinError 1155] Der angegebenen Datei ist keine Anwendung zugeordnet: 'data\\print_tisch_3.html'
+2025-05-29 08:58:14,412 - INFO - Timer für Tisch 3 neu gestartet
+2025-05-29 08:58:21,010 - INFO - Bestellungen für Tisch 3: 2 Einträge
+2025-05-29 08:58:21,011 - INFO - 127.0.0.1 - - [29/May/2025 08:58:21] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:58:21,034 - INFO - 127.0.0.1 - - [29/May/2025 08:58:21] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:58:44,414 - INFO - Überprüfe Bestellungen für Tisch 3
+2025-05-29 08:58:44,414 - INFO - Neue Bestellungen für Tisch 3 gefunden: 2
+2025-05-29 08:58:44,436 - ERROR - Fehler beim Drucken für Tisch 3: [WinError 1155] Der angegebenen Datei ist keine Anwendung zugeordnet: 'data\\print_tisch_3.html'
+2025-05-29 08:58:44,436 - INFO - Timer für Tisch 3 neu gestartet
+2025-05-29 08:58:52,023 - INFO - Bestellungen für Tisch 3: 2 Einträge
+2025-05-29 08:58:52,023 - INFO - 127.0.0.1 - - [29/May/2025 08:58:52] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:58:52,048 - INFO - 127.0.0.1 - - [29/May/2025 08:58:52] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:59:00,050 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 08:59:00,051 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 08:59:00,051 - INFO - Daten geladen aus data\orders.json: 7 Einträge
+2025-05-29 08:59:00,066 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 08:59:00,067 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 08:59:22,857 - WARNING - Zugriff auf /orders ohne Tischnummer
+2025-05-29 08:59:22,858 - INFO - 127.0.0.1 - - [29/May/2025 08:59:22] "[32mGET /orders HTTP/1.1[0m" 302 -
+2025-05-29 08:59:22,880 - INFO - 127.0.0.1 - - [29/May/2025 08:59:22] "GET / HTTP/1.1" 200 -
+2025-05-29 08:59:26,137 - INFO - 127.0.0.1 - - [29/May/2025 08:59:26] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 08:59:26,144 - INFO - 127.0.0.1 - - [29/May/2025 08:59:26] "GET / HTTP/1.1" 200 -
+2025-05-29 08:59:29,273 - INFO - 127.0.0.1 - - [29/May/2025 08:59:29] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 08:59:29,278 - INFO - Bestellungen für Tisch 111: 0 Einträge
+2025-05-29 08:59:29,288 - INFO - 127.0.0.1 - - [29/May/2025 08:59:29] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:59:29,314 - INFO - 127.0.0.1 - - [29/May/2025 08:59:29] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 08:59:35,732 - INFO - Mehrere Bestellungen erhalten für Tisch 111: 1 Bestellungen
+2025-05-29 08:59:35,732 - INFO - Bestellung hinzugefügt: {'id': 8, 'tisch': '111', 'produkt': 'Limo Weiß', 'menge': 2, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T08:59:35.732285', 'status': 'neu'}
+2025-05-29 08:59:35,733 - INFO - Daten gespeichert in data\orders.json: 8 Einträge
+2025-05-29 08:59:35,733 - INFO - 1 Bestellungen erfolgreich gespeichert
+2025-05-29 08:59:35,733 - INFO - Überprüfe Bestellungen für Tisch 111
+2025-05-29 08:59:35,733 - INFO - Neue Bestellungen für Tisch 111 gefunden: 1
+2025-05-29 08:59:38,065 - INFO - Druckauftrag für Tisch 111 gesendet
+2025-05-29 08:59:38,065 - INFO - Timer für Tisch 111 neu gestartet
+2025-05-29 08:59:38,065 - INFO - Neuer Druck-Timer für Tisch 111 gestartet
+2025-05-29 08:59:38,066 - INFO - 127.0.0.1 - - [29/May/2025 08:59:38] "POST /orders HTTP/1.1" 200 -
+2025-05-29 08:59:38,166 - INFO - Bestellungen für Tisch 111: 1 Einträge
+2025-05-29 08:59:38,167 - INFO - 127.0.0.1 - - [29/May/2025 08:59:38] "GET /orders HTTP/1.1" 200 -
+2025-05-29 08:59:38,204 - INFO - 127.0.0.1 - - [29/May/2025 08:59:38] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:00:08,073 - INFO - Überprüfe Bestellungen für Tisch 111
+2025-05-29 09:00:08,073 - INFO - Neue Bestellungen für Tisch 111 gefunden: 1
+2025-05-29 09:00:08,190 - INFO - Bestellungen für Tisch 111: 1 Einträge
+2025-05-29 09:00:08,191 - INFO - 127.0.0.1 - - [29/May/2025 09:00:08] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:00:08,218 - INFO - 127.0.0.1 - - [29/May/2025 09:00:08] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:00:09,281 - INFO - Druckauftrag für Tisch 111 gesendet
+2025-05-29 09:00:09,282 - INFO - Timer für Tisch 111 neu gestartet
+2025-05-29 09:00:39,021 - INFO - Bestellungen für Tisch 111: 1 Einträge
+2025-05-29 09:00:39,022 - INFO - 127.0.0.1 - - [29/May/2025 09:00:39] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:00:39,082 - INFO - 127.0.0.1 - - [29/May/2025 09:00:39] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:00:39,288 - INFO - Überprüfe Bestellungen für Tisch 111
+2025-05-29 09:00:39,288 - INFO - Neue Bestellungen für Tisch 111 gefunden: 1
+2025-05-29 09:00:40,409 - INFO - Druckauftrag für Tisch 111 gesendet
+2025-05-29 09:00:40,410 - INFO - Timer für Tisch 111 neu gestartet
+2025-05-29 09:01:10,011 - INFO - Bestellungen für Tisch 111: 1 Einträge
+2025-05-29 09:01:10,012 - INFO - 127.0.0.1 - - [29/May/2025 09:01:10] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:01:10,033 - INFO - 127.0.0.1 - - [29/May/2025 09:01:10] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:01:10,416 - INFO - Überprüfe Bestellungen für Tisch 111
+2025-05-29 09:01:10,416 - INFO - Neue Bestellungen für Tisch 111 gefunden: 1
+2025-05-29 09:01:11,514 - INFO - Druckauftrag für Tisch 111 gesendet
+2025-05-29 09:01:11,515 - INFO - Timer für Tisch 111 neu gestartet
+2025-05-29 09:01:41,020 - INFO - Bestellungen für Tisch 111: 1 Einträge
+2025-05-29 09:01:41,021 - INFO - 127.0.0.1 - - [29/May/2025 09:01:41] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:01:41,040 - INFO - 127.0.0.1 - - [29/May/2025 09:01:41] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:01:41,515 - INFO - Überprüfe Bestellungen für Tisch 111
+2025-05-29 09:01:41,515 - INFO - Neue Bestellungen für Tisch 111 gefunden: 1
+2025-05-29 09:01:42,854 - INFO - Druckauftrag für Tisch 111 gesendet
+2025-05-29 09:01:42,854 - INFO - Timer für Tisch 111 neu gestartet
+2025-05-29 09:02:12,015 - INFO - Bestellungen für Tisch 111: 1 Einträge
+2025-05-29 09:02:12,016 - INFO - 127.0.0.1 - - [29/May/2025 09:02:12] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:02:12,039 - INFO - 127.0.0.1 - - [29/May/2025 09:02:12] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:02:12,869 - INFO - Überprüfe Bestellungen für Tisch 111
+2025-05-29 09:02:12,869 - INFO - Neue Bestellungen für Tisch 111 gefunden: 1
+2025-05-29 09:02:13,831 - INFO - Druckauftrag für Tisch 111 gesendet
+2025-05-29 09:02:13,831 - INFO - Timer für Tisch 111 neu gestartet
+2025-05-29 09:02:43,017 - INFO - Bestellungen für Tisch 111: 1 Einträge
+2025-05-29 09:02:43,019 - INFO - 127.0.0.1 - - [29/May/2025 09:02:43] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:02:43,046 - INFO - 127.0.0.1 - - [29/May/2025 09:02:43] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:02:43,833 - INFO - Überprüfe Bestellungen für Tisch 111
+2025-05-29 09:02:43,833 - INFO - Neue Bestellungen für Tisch 111 gefunden: 1
+2025-05-29 09:02:44,717 - INFO - Druckauftrag für Tisch 111 gesendet
+2025-05-29 09:02:44,717 - INFO - Timer für Tisch 111 neu gestartet
+2025-05-29 09:03:14,019 - INFO - Bestellungen für Tisch 111: 1 Einträge
+2025-05-29 09:03:14,020 - INFO - 127.0.0.1 - - [29/May/2025 09:03:14] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:03:14,043 - INFO - 127.0.0.1 - - [29/May/2025 09:03:14] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:03:14,720 - INFO - Überprüfe Bestellungen für Tisch 111
+2025-05-29 09:03:14,720 - INFO - Neue Bestellungen für Tisch 111 gefunden: 1
+2025-05-29 09:03:15,773 - INFO - Druckauftrag für Tisch 111 gesendet
+2025-05-29 09:03:15,773 - INFO - Timer für Tisch 111 neu gestartet
+2025-05-29 09:03:45,013 - INFO - Bestellungen für Tisch 111: 1 Einträge
+2025-05-29 09:03:45,014 - INFO - 127.0.0.1 - - [29/May/2025 09:03:45] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:03:45,037 - INFO - 127.0.0.1 - - [29/May/2025 09:03:45] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:03:45,784 - INFO - Überprüfe Bestellungen für Tisch 111
+2025-05-29 09:03:45,784 - INFO - Neue Bestellungen für Tisch 111 gefunden: 1
+2025-05-29 09:03:49,290 - INFO - Druckauftrag für Tisch 111 gesendet
+2025-05-29 09:03:49,291 - INFO - Timer für Tisch 111 neu gestartet
+2025-05-29 09:04:16,024 - INFO - Bestellungen für Tisch 111: 1 Einträge
+2025-05-29 09:04:16,024 - INFO - 127.0.0.1 - - [29/May/2025 09:04:16] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:04:16,048 - INFO - 127.0.0.1 - - [29/May/2025 09:04:16] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:04:19,304 - INFO - Überprüfe Bestellungen für Tisch 111
+2025-05-29 09:04:19,304 - INFO - Neue Bestellungen für Tisch 111 gefunden: 1
+2025-05-29 09:04:22,806 - INFO - Druckauftrag für Tisch 111 gesendet
+2025-05-29 09:04:22,807 - INFO - Timer für Tisch 111 neu gestartet
+2025-05-29 09:05:28,475 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 09:05:28,475 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 09:05:28,476 - INFO - Daten geladen aus data\orders.json: 8 Einträge
+2025-05-29 09:05:28,489 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 09:05:28,489 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 09:05:29,381 - WARNING - Zugriff auf /orders ohne Tischnummer
+2025-05-29 09:05:29,382 - INFO - 127.0.0.1 - - [29/May/2025 09:05:29] "[32mGET /orders HTTP/1.1[0m" 302 -
+2025-05-29 09:05:29,393 - INFO - 127.0.0.1 - - [29/May/2025 09:05:29] "GET / HTTP/1.1" 200 -
+2025-05-29 09:05:36,643 - INFO - 127.0.0.1 - - [29/May/2025 09:05:36] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 09:05:36,650 - INFO - Bestellungen für Tisch 11: 0 Einträge
+2025-05-29 09:05:36,661 - INFO - 127.0.0.1 - - [29/May/2025 09:05:36] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:05:36,682 - INFO - 127.0.0.1 - - [29/May/2025 09:05:36] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:05:45,822 - INFO - Mehrere Bestellungen erhalten für Tisch 11: 1 Bestellungen
+2025-05-29 09:05:45,822 - INFO - Bestellung hinzugefügt: {'id': 9, 'tisch': '11', 'produkt': 'Limo Weiß', 'menge': 1, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T09:05:45.822736', 'status': 'neu'}
+2025-05-29 09:05:45,832 - INFO - Daten gespeichert in data\orders.json: 9 Einträge
+2025-05-29 09:05:45,832 - INFO - 1 Bestellungen erfolgreich gespeichert
+2025-05-29 09:05:45,833 - INFO - Überprüfe Bestellungen für Tisch 11
+2025-05-29 09:05:45,833 - INFO - Neue Bestellungen für Tisch 11 gefunden: 1
+2025-05-29 09:05:47,083 - INFO - Druckauftrag für Tisch 11 gesendet
+2025-05-29 09:05:47,084 - INFO - Bestellung 9 als erledigt markiert
+2025-05-29 09:05:47,085 - INFO - Daten gespeichert in data\orders.json: 9 Einträge
+2025-05-29 09:05:47,085 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:05:47,085 - INFO - Neuer Druck-Timer für Tisch 11 gestartet
+2025-05-29 09:05:47,086 - INFO - 127.0.0.1 - - [29/May/2025 09:05:47] "POST /orders HTTP/1.1" 200 -
+2025-05-29 09:05:47,097 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:05:47,097 - INFO - 127.0.0.1 - - [29/May/2025 09:05:47] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:05:47,151 - INFO - 127.0.0.1 - - [29/May/2025 09:05:47] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:06:17,090 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:06:17,132 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:06:17,133 - INFO - 127.0.0.1 - - [29/May/2025 09:06:17] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:06:17,160 - INFO - 127.0.0.1 - - [29/May/2025 09:06:17] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:06:47,099 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:06:48,011 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:06:48,012 - INFO - 127.0.0.1 - - [29/May/2025 09:06:48] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:06:48,039 - INFO - 127.0.0.1 - - [29/May/2025 09:06:48] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:07:17,108 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:07:19,019 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:07:19,019 - INFO - 127.0.0.1 - - [29/May/2025 09:07:19] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:07:19,042 - INFO - 127.0.0.1 - - [29/May/2025 09:07:19] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:07:47,110 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:07:50,019 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:07:50,020 - INFO - 127.0.0.1 - - [29/May/2025 09:07:50] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:07:50,042 - INFO - 127.0.0.1 - - [29/May/2025 09:07:50] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:08:17,117 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:08:21,021 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:08:21,022 - INFO - 127.0.0.1 - - [29/May/2025 09:08:21] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:08:21,043 - INFO - 127.0.0.1 - - [29/May/2025 09:08:21] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:08:47,125 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:08:52,017 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:08:52,018 - INFO - 127.0.0.1 - - [29/May/2025 09:08:52] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:08:52,040 - INFO - 127.0.0.1 - - [29/May/2025 09:08:52] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:09:17,137 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:09:23,013 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:09:23,014 - INFO - 127.0.0.1 - - [29/May/2025 09:09:23] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:09:23,035 - INFO - 127.0.0.1 - - [29/May/2025 09:09:23] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:09:47,151 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:09:54,023 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:09:54,023 - INFO - 127.0.0.1 - - [29/May/2025 09:09:54] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:09:54,046 - INFO - 127.0.0.1 - - [29/May/2025 09:09:54] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:10:17,158 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:10:25,018 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:10:25,019 - INFO - 127.0.0.1 - - [29/May/2025 09:10:25] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:10:25,042 - INFO - 127.0.0.1 - - [29/May/2025 09:10:25] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:10:47,173 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:10:56,014 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:10:56,015 - INFO - 127.0.0.1 - - [29/May/2025 09:10:56] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:10:56,037 - INFO - 127.0.0.1 - - [29/May/2025 09:10:56] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:11:17,185 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:11:27,018 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:11:27,018 - INFO - 127.0.0.1 - - [29/May/2025 09:11:27] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:11:27,039 - INFO - 127.0.0.1 - - [29/May/2025 09:11:27] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:11:47,194 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:11:58,021 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:11:58,021 - INFO - 127.0.0.1 - - [29/May/2025 09:11:58] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:11:58,042 - INFO - 127.0.0.1 - - [29/May/2025 09:11:58] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:12:17,202 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:12:29,021 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:12:29,022 - INFO - 127.0.0.1 - - [29/May/2025 09:12:29] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:12:29,041 - INFO - 127.0.0.1 - - [29/May/2025 09:12:29] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:12:47,205 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:13:00,017 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:13:00,018 - INFO - 127.0.0.1 - - [29/May/2025 09:13:00] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:13:00,046 - INFO - 127.0.0.1 - - [29/May/2025 09:13:00] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:13:17,214 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:13:31,015 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:13:31,015 - INFO - 127.0.0.1 - - [29/May/2025 09:13:31] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:13:31,041 - INFO - 127.0.0.1 - - [29/May/2025 09:13:31] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:13:47,216 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:14:02,012 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:14:02,013 - INFO - 127.0.0.1 - - [29/May/2025 09:14:02] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:14:02,035 - INFO - 127.0.0.1 - - [29/May/2025 09:14:02] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:14:17,222 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:14:33,011 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:14:33,012 - INFO - 127.0.0.1 - - [29/May/2025 09:14:33] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:14:33,032 - INFO - 127.0.0.1 - - [29/May/2025 09:14:33] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:14:47,229 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:15:04,025 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:15:04,026 - INFO - 127.0.0.1 - - [29/May/2025 09:15:04] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:15:04,048 - INFO - 127.0.0.1 - - [29/May/2025 09:15:04] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:15:17,231 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:15:35,014 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:15:35,015 - INFO - 127.0.0.1 - - [29/May/2025 09:15:35] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:15:35,036 - INFO - 127.0.0.1 - - [29/May/2025 09:15:35] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:15:47,231 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:16:06,015 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:16:06,016 - INFO - 127.0.0.1 - - [29/May/2025 09:16:06] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:16:06,038 - INFO - 127.0.0.1 - - [29/May/2025 09:16:06] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:16:17,240 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:16:37,012 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:16:37,013 - INFO - 127.0.0.1 - - [29/May/2025 09:16:37] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:16:37,033 - INFO - 127.0.0.1 - - [29/May/2025 09:16:37] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:16:47,250 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:17:08,019 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:17:08,020 - INFO - 127.0.0.1 - - [29/May/2025 09:17:08] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:17:08,040 - INFO - 127.0.0.1 - - [29/May/2025 09:17:08] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:17:17,260 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:17:39,017 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:17:39,018 - INFO - 127.0.0.1 - - [29/May/2025 09:17:39] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:17:39,038 - INFO - 127.0.0.1 - - [29/May/2025 09:17:39] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:17:47,267 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:18:10,022 - INFO - Bestellungen für Tisch 11: 1 Einträge
+2025-05-29 09:18:10,023 - INFO - 127.0.0.1 - - [29/May/2025 09:18:10] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:18:10,043 - INFO - 127.0.0.1 - - [29/May/2025 09:18:10] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:18:17,280 - INFO - Timer für Tisch 11 neu gestartet
+2025-05-29 09:20:20,794 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 09:20:20,795 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 09:20:20,795 - INFO - Daten geladen aus data\orders.json: 0 Einträge
+2025-05-29 09:20:20,809 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 09:20:20,809 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 09:21:16,010 - WARNING - Zugriff auf /orders ohne Tischnummer
+2025-05-29 09:21:16,011 - INFO - 127.0.0.1 - - [29/May/2025 09:21:16] "[32mGET /orders HTTP/1.1[0m" 302 -
+2025-05-29 09:21:16,022 - INFO - 127.0.0.1 - - [29/May/2025 09:21:16] "GET / HTTP/1.1" 200 -
+2025-05-29 09:21:20,923 - INFO - 127.0.0.1 - - [29/May/2025 09:21:20] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 09:21:20,939 - INFO - 127.0.0.1 - - [29/May/2025 09:21:20] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:21:20,976 - INFO - 127.0.0.1 - - [29/May/2025 09:21:20] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:21:29,084 - INFO - Bestellungen erhalten für Tisch 3: 1 Bestellungen
+2025-05-29 09:21:29,084 - INFO - Bestellung hinzugefügt: {'id': 1, 'tisch': '3', 'produkt': 'Pommes', 'menge': 1, 'kommentar': '', 'kategorie': 1, 'zeitpunkt': '2025-05-29T09:21:29.084784', 'status': 'neu'}
+2025-05-29 09:21:29,085 - INFO - Daten gespeichert in data\orders.json: 1 Einträge
+2025-05-29 09:21:29,086 - INFO - Überprüfe Bestellungen für Tisch 3
+2025-05-29 09:21:29,086 - INFO - Neue Bestellungen für Tisch 3 gefunden: 1
+2025-05-29 09:21:29,086 - INFO - Daten gespeichert in data\orders.json: 1 Einträge
+2025-05-29 09:21:31,277 - INFO - Druckauftrag für Tisch 3 gesendet
+2025-05-29 09:21:31,278 - INFO - 127.0.0.1 - - [29/May/2025 09:21:31] "POST /orders HTTP/1.1" 200 -
+2025-05-29 09:21:31,291 - INFO - 127.0.0.1 - - [29/May/2025 09:21:31] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:21:31,317 - INFO - 127.0.0.1 - - [29/May/2025 09:21:31] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:22:02,735 - INFO - Timer für Tisch 3 neu gestartet
+2025-05-29 09:22:03,477 - INFO - 127.0.0.1 - - [29/May/2025 09:22:03] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:22:03,501 - INFO - 127.0.0.1 - - [29/May/2025 09:22:03] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:22:31,349 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 09:22:31,350 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 09:22:31,350 - INFO - Daten geladen aus data\orders.json: 1 Einträge
+2025-05-29 09:22:31,363 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 09:22:31,364 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 09:22:34,459 - WARNING - Zugriff auf /orders ohne Tischnummer
+2025-05-29 09:22:34,460 - INFO - 127.0.0.1 - - [29/May/2025 09:22:34] "[32mGET /orders HTTP/1.1[0m" 302 -
+2025-05-29 09:22:34,471 - INFO - 127.0.0.1 - - [29/May/2025 09:22:34] "GET / HTTP/1.1" 200 -
+2025-05-29 09:22:40,987 - INFO - 127.0.0.1 - - [29/May/2025 09:22:40] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 09:22:40,993 - INFO - 127.0.0.1 - - [29/May/2025 09:22:40] "GET / HTTP/1.1" 200 -
+2025-05-29 09:22:44,380 - INFO - 127.0.0.1 - - [29/May/2025 09:22:44] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 09:22:44,394 - INFO - 127.0.0.1 - - [29/May/2025 09:22:44] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:22:44,420 - INFO - 127.0.0.1 - - [29/May/2025 09:22:44] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:22:56,732 - INFO - Bestellungen erhalten für Tisch 1: 2 Bestellungen
+2025-05-29 09:22:56,733 - INFO - Bestellung hinzugefügt: {'id': 2, 'tisch': '1', 'produkt': 'Schnitzel', 'menge': 1, 'kommentar': '', 'kategorie': 1, 'zeitpunkt': '2025-05-29T09:22:56.733981', 'status': 'neu'}
+2025-05-29 09:22:56,733 - INFO - Bestellung hinzugefügt: {'id': 3, 'tisch': '1', 'produkt': 'Weißbier', 'menge': 1, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T09:22:56.733981', 'status': 'neu'}
+2025-05-29 09:22:56,734 - INFO - Daten gespeichert in data\orders.json: 3 Einträge
+2025-05-29 09:22:56,734 - INFO - Überprüfe Bestellungen für Tisch 1
+2025-05-29 09:22:56,734 - INFO - Neue Bestellungen für Tisch 1 gefunden: 2
+2025-05-29 09:22:56,736 - INFO - Daten gespeichert in data\orders.json: 3 Einträge
+2025-05-29 09:23:10,730 - INFO - Druckauftrag für Tisch 1 gesendet
+2025-05-29 09:23:10,730 - INFO - 127.0.0.1 - - [29/May/2025 09:23:10] "POST /orders HTTP/1.1" 200 -
+2025-05-29 09:23:10,744 - INFO - 127.0.0.1 - - [29/May/2025 09:23:10] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:23:10,764 - INFO - 127.0.0.1 - - [29/May/2025 09:23:10] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:23:40,744 - INFO - Timer für Tisch 1 neu gestartet
+2025-05-29 09:23:41,464 - INFO - 127.0.0.1 - - [29/May/2025 09:23:41] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:23:41,489 - INFO - 127.0.0.1 - - [29/May/2025 09:23:41] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:24:03,087 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 09:24:03,087 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 09:24:03,088 - INFO - Daten geladen aus data\orders.json: 3 Einträge
+2025-05-29 09:24:03,101 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 09:24:03,101 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 09:24:11,490 - WARNING - Zugriff auf /orders ohne Tischnummer
+2025-05-29 09:24:11,491 - INFO - 127.0.0.1 - - [29/May/2025 09:24:11] "[32mGET /orders HTTP/1.1[0m" 302 -
+2025-05-29 09:24:11,501 - INFO - 127.0.0.1 - - [29/May/2025 09:24:11] "GET / HTTP/1.1" 200 -
+2025-05-29 09:24:14,109 - INFO - 127.0.0.1 - - [29/May/2025 09:24:14] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-05-29 09:24:14,123 - INFO - 127.0.0.1 - - [29/May/2025 09:24:14] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:24:14,146 - INFO - 127.0.0.1 - - [29/May/2025 09:24:14] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:24:20,636 - INFO - Bestellungen erhalten für Tisch 1: 2 Bestellungen
+2025-05-29 09:24:20,636 - INFO - Bestellung hinzugefügt: {'id': 4, 'tisch': '1', 'produkt': 'Limo Weiß', 'menge': 1, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T09:24:20.636995', 'status': 'neu'}
+2025-05-29 09:24:20,637 - INFO - Bestellung hinzugefügt: {'id': 5, 'tisch': '1', 'produkt': 'Limo Gelb', 'menge': 1, 'kommentar': '', 'kategorie': 2, 'zeitpunkt': '2025-05-29T09:24:20.637995', 'status': 'neu'}
+2025-05-29 09:24:20,638 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 09:24:20,638 - INFO - Überprüfe Bestellungen für Tisch 1
+2025-05-29 09:24:20,638 - INFO - Neue Bestellungen für Tisch 1 gefunden: 2
+2025-05-29 09:24:20,639 - INFO - Daten gespeichert in data\orders.json: 5 Einträge
+2025-05-29 09:24:20,639 - ERROR - Fehler beim Drucken für Tisch 1: [Errno 13] Permission denied: 'data\\print_tisch_1.txt'
+Traceback (most recent call last):
+  File "d:\Tobias\AProgrammieren\Bestellungssystem\app.py", line 175, in check_and_print_orders
+    with open(temp_file, 'w', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'data\\print_tisch_1.txt'
+2025-05-29 09:24:20,641 - INFO - 127.0.0.1 - - [29/May/2025 09:24:20] "POST /orders HTTP/1.1" 200 -
+2025-05-29 09:24:20,653 - INFO - 127.0.0.1 - - [29/May/2025 09:24:20] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:24:20,679 - INFO - 127.0.0.1 - - [29/May/2025 09:24:20] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:24:50,652 - INFO - Timer für Tisch 1 neu gestartet
+2025-05-29 09:24:51,461 - INFO - 127.0.0.1 - - [29/May/2025 09:24:51] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:24:51,484 - INFO - 127.0.0.1 - - [29/May/2025 09:24:51] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:25:20,659 - INFO - Timer für Tisch 1 neu gestartet
+2025-05-29 09:25:22,469 - INFO - 127.0.0.1 - - [29/May/2025 09:25:22] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:25:22,491 - INFO - 127.0.0.1 - - [29/May/2025 09:25:22] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:25:50,669 - INFO - Timer für Tisch 1 neu gestartet
+2025-05-29 09:25:53,473 - INFO - 127.0.0.1 - - [29/May/2025 09:25:53] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:25:53,493 - INFO - 127.0.0.1 - - [29/May/2025 09:25:53] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:26:20,678 - INFO - Timer für Tisch 1 neu gestartet
+2025-05-29 09:26:24,476 - INFO - 127.0.0.1 - - [29/May/2025 09:26:24] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:26:24,503 - INFO - 127.0.0.1 - - [29/May/2025 09:26:24] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:26:50,689 - INFO - Timer für Tisch 1 neu gestartet
+2025-05-29 09:26:55,469 - INFO - 127.0.0.1 - - [29/May/2025 09:26:55] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:26:55,492 - INFO - 127.0.0.1 - - [29/May/2025 09:26:55] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 09:27:20,704 - INFO - Timer für Tisch 1 neu gestartet
+2025-05-29 09:27:26,472 - INFO - 127.0.0.1 - - [29/May/2025 09:27:26] "GET /orders HTTP/1.1" 200 -
+2025-05-29 09:27:26,492 - INFO - 127.0.0.1 - - [29/May/2025 09:27:26] "GET /admin/check-status HTTP/1.1" 200 -
+2025-05-29 18:19:27,030 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 18:19:27,031 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 18:19:27,031 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 18:19:27,046 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 18:19:27,046 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 18:21:58,313 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 18:21:58,313 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 18:21:58,314 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 18:21:58,327 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 18:21:58,327 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 18:23:21,523 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 18:23:21,524 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 18:23:21,524 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 18:23:21,539 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 18:23:21,539 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 18:25:54,181 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-05-29 18:25:54,181 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-05-29 18:25:54,182 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-05-29 18:25:54,196 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-05-29 18:25:54,197 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 07:27:08,683 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-06-01 07:27:08,683 - INFO - Daten geladen aus data\products.json: 7 Einträge
+2025-06-01 07:27:08,683 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-06-01 07:27:08,711 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.178.64:80
+2025-06-01 07:27:08,712 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 07:27:13,157 - INFO - 192.168.178.64 - - [01/Jun/2025 07:27:13] "GET / HTTP/1.1" 200 -
+2025-06-01 07:27:13,247 - INFO - 192.168.178.64 - - [01/Jun/2025 07:27:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-01 07:27:15,771 - INFO - 192.168.178.64 - - [01/Jun/2025 07:27:15] "[32mPOST /set-table HTTP/1.1[0m" 302 -
+2025-06-01 07:27:15,787 - INFO - 192.168.178.64 - - [01/Jun/2025 07:27:15] "GET /orders HTTP/1.1" 200 -
+2025-06-01 07:27:15,811 - INFO - 192.168.178.64 - - [01/Jun/2025 07:27:15] "GET /admin/check-status HTTP/1.1" 200 -
+2025-06-01 11:46:00,346 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-06-01 11:46:00,346 - INFO - Daten geladen aus data\products.json: 18 Einträge
+2025-06-01 11:46:00,347 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-06-01 11:46:00,365 - WARNING - Konnte Drucker nicht zurücksetzen, versuche trotzdem fortzufahren
+2025-06-01 11:46:02,377 - WARNING - Erster Initialisierungsversuch fehlgeschlagen: No backend available
+2025-06-01 11:46:02,380 - ERROR - Beide Initialisierungsversuche fehlgeschlagen: No backend available
+2025-06-01 11:46:02,381 - ERROR - Drucker nicht verfügbar beim Start des Workers
+2025-06-01 11:46:02,381 - ERROR - Konnte Drucker-Worker nicht starten - Programm wird beendet
+2025-06-01 11:46:24,494 - INFO - Daten geladen aus data\categories.json: 2 Einträge
+2025-06-01 11:46:24,495 - INFO - Daten geladen aus data\products.json: 18 Einträge
+2025-06-01 11:46:24,495 - INFO - Daten geladen aus data\orders.json: 5 Einträge
+2025-06-01 11:46:24,513 - WARNING - Konnte Drucker nicht zurücksetzen, versuche trotzdem fortzufahren
+2025-06-01 11:46:26,522 - WARNING - Erster Initialisierungsversuch fehlgeschlagen: No backend available
+2025-06-01 11:46:26,526 - ERROR - Beide Initialisierungsversuche fehlgeschlagen: No backend available
+2025-06-01 11:46:26,527 - ERROR - Drucker nicht verfügbar beim Start des Workers
+2025-06-01 11:46:26,527 - ERROR - Konnte Drucker-Worker nicht starten - Programm wird beendet

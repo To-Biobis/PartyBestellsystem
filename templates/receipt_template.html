@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Bon-Gestaltung</h2>
+    <form method="POST" class="mt-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Kopfzeile</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="header_text">Text</label>
+                    <textarea class="form-control" id="header_text" name="header_text" rows="3">{{ template.header.text }}</textarea>
+                    <small class="form-text text-muted">Verwenden Sie \n für Zeilenumbrüche</small>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="header_align">Ausrichtung</label>
+                            <select class="form-control" id="header_align" name="header_align">
+                                <option value="left" {% if template.header.align == 'left' %}selected{% endif %}>Links</option>
+                                <option value="center" {% if template.header.align == 'center' %}selected{% endif %}>Zentriert</option>
+                                <option value="right" {% if template.header.align == 'right' %}selected{% endif %}>Rechts</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="header_font">Schriftart</label>
+                            <select class="form-control" id="header_font" name="header_font">
+                                <option value="a" {% if template.header.font == 'a' %}selected{% endif %}>Normal</option>
+                                <option value="b" {% if template.header.font == 'b' %}selected{% endif %}>Fett</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="header_width">Breite</label>
+                            <input type="number" class="form-control" id="header_width" name="header_width" 
+                                   value="{{ template.header.width }}" min="1" max="2">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="header_height">Höhe</label>
+                            <input type="number" class="form-control" id="header_height" name="header_height" 
+                                   value="{{ template.header.height }}" min="1" max="2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Bestellungsformat</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="product_format">Produktzeile</label>
+                    <input type="text" class="form-control" id="product_format" name="product_format" 
+                           value="{{ template.order_format.product }}">
+                    <small class="form-text text-muted">Verfügbare Variablen: {menge}, {produkt}</small>
+                </div>
+                <div class="form-group">
+                    <label for="price_format">Preiszeile</label>
+                    <input type="text" class="form-control" id="price_format" name="price_format" 
+                           value="{{ template.order_format.price }}">
+                    <small class="form-text text-muted">Verfügbare Variablen: {menge}, {price}, {total}</small>
+                </div>
+                <div class="form-group">
+                    <label for="comment_format">Kommentarzeile</label>
+                    <input type="text" class="form-control" id="comment_format" name="comment_format" 
+                           value="{{ template.order_format.comment }}">
+                    <small class="form-text text-muted">Verfügbare Variablen: {comment}</small>
+                </div>
+                <div class="form-group">
+                    <label for="time_format">Zeitzeile</label>
+                    <input type="text" class="form-control" id="time_format" name="time_format" 
+                           value="{{ template.order_format.time }}">
+                    <small class="form-text text-muted">Verfügbare Variablen: {time}</small>
+                </div>
+                <div class="form-group">
+                    <label for="separator">Trennlinie</label>
+                    <input type="text" class="form-control" id="separator" name="separator" 
+                           value="{{ template.separator }}">
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Fußzeile</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="footer_text">Text</label>
+                    <textarea class="form-control" id="footer_text" name="footer_text" rows="3">{{ template.footer.text }}</textarea>
+                    <small class="form-text text-muted">Verwenden Sie \n für Zeilenumbrüche</small>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="footer_align">Ausrichtung</label>
+                            <select class="form-control" id="footer_align" name="footer_align">
+                                <option value="left" {% if template.footer.align == 'left' %}selected{% endif %}>Links</option>
+                                <option value="center" {% if template.footer.align == 'center' %}selected{% endif %}>Zentriert</option>
+                                <option value="right" {% if template.footer.align == 'right' %}selected{% endif %}>Rechts</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="footer_font">Schriftart</label>
+                            <select class="form-control" id="footer_font" name="footer_font">
+                                <option value="a" {% if template.footer.font == 'a' %}selected{% endif %}>Normal</option>
+                                <option value="b" {% if template.footer.font == 'b' %}selected{% endif %}>Fett</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="footer_width">Breite</label>
+                            <input type="number" class="form-control" id="footer_width" name="footer_width" 
+                                   value="{{ template.footer.width }}" min="1" max="2">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="footer_height">Höhe</label>
+                            <input type="number" class="form-control" id="footer_height" name="footer_height" 
+                                   value="{{ template.footer.height }}" min="1" max="2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Speichern</button>
+            <a href="{{ url_for('admin_panel') }}" class="btn btn-secondary">Zurück</a>
+        </div>
+    </form>
+
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4>Vorschau</h4>
+        </div>
+        <div class="card-body">
+            <pre class="receipt-preview">
+{{ template.header.text }}
+{{ template.separator }}
+Beispiel-Bestellung:
+{{ template.order_format.product.format(menge=2, produkt='Pizza Margherita') }}
+{{ template.order_format.price.format(menge=2, price=8.50, total=17.00) }}
+{{ template.order_format.comment.format(comment='Extra Käse') }}
+{{ template.order_format.time.format(time='12:30') }}
+{{ template.separator }}
+{{ template.footer.text }}</pre>
+        </div>
+    </div>
+</div>
+
+<style>
+.receipt-preview {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 32em;
+    margin: 0 auto;
+}
+</style>
+{% endblock %} 

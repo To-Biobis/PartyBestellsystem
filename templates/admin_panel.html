@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+
+{% block head %}
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Admin-Panel</h2>
+    
+    <!-- Performance-Metriken -->
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Server-Performance</h4>
+            <button class="btn btn-sm btn-outline-secondary" onclick="updateMetrics()">Aktualisieren</button>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="metric-card">
+                        <h5>Uptime</h5>
+                        <p id="uptime">{{ "%.1f"|format(metrics.uptime / 3600) }} Stunden</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card">
+                        <h5>CPU-Auslastung</h5>
+                        <p id="cpu-usage">{{ "%.1f"|format(metrics.cpu_percent) }}%</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card">
+                        <h5>Speichernutzung</h5>
+                        <p id="memory-usage">{{ "%.1f"|format(metrics.memory_usage) }} MB</p>
+                        <small class="text-muted">{{ "%.1f"|format(metrics.memory_percent) }}%</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card">
+                        <h5>Anfragen</h5>
+                        <p id="request-count">{{ metrics.request_count }}</p>
+                        <small class="text-muted">Threads: {{ metrics.thread_count }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bestellungsverwaltung -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="mb-0">Bestellungsverwaltung</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="{{ url_for('order_management', order_type='essen') }}" class="btn btn-primary btn-lg btn-block mb-2 w-100">
+                        Essen verwalten
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ url_for('order_management', order_type='trinken') }}" class="btn btn-primary btn-lg btn-block mb-2 w-100">
+                        Getränke verwalten
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kategorien und Produkte -->
+    <div class="row">
+        <!-- Kategorien -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Kategorien</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" class="mb-3">
+                        <input type="hidden" name="action" value="add_kategorie">
+                        <div class="input-group">
+                            <input type="text" name="kategorie_name" class="form-control" placeholder="Neue Kategorie" required>
+                            <button type="submit" class="btn btn-primary">Hinzufügen</button>
+                        </div>
+                    </form>
+                    
+                    <div class="list-group">
+                        {% for kategorie in kategorien %}
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ kategorie.name }}
+                            <form method="POST" class="d-inline">
+                                <input type="hidden" name="action" value="delete_kategorie">
+                                <input type="hidden" name="kategorie_id" value="{{ kategorie.id }}">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Kategorie wirklich löschen?')">Löschen</button>
+                            </form>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produkte -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Produkte</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" class="mb-3">
+                        <input type="hidden" name="action" value="add_produkt">
+                        <div class="mb-2">
+                            <input type="text" name="produkt_name" class="form-control" placeholder="Produktname" required>
+                        </div>
+                        <div class="mb-2">
+                            <select name="kategorie_id" class="form-control" required>
+                                <option value="">Kategorie auswählen</option>
+                                {% for kategorie in kategorien %}
+                                <option value="{{ kategorie.id }}">{{ kategorie.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <input type="number" name="price" class="form-control" placeholder="Preis" step="0.01" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Hinzufügen</button>
+                    </form>
+                    
+                    <div class="list-group mt-3">
+                        {% for produkt in produkte %}
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>{{ produkt.name }}</strong>
+                                    <small class="text-muted d-block">
+                                        {{ kategorien|selectattr('id', 'eq', produkt.kategorie)|map(attribute='name')|first }}
+                                    </small>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <form method="POST" class="me-2">
+                                        <input type="hidden" name="action" value="update_price">
+                                        <input type="hidden" name="produkt_id" value="{{ produkt.id }}">
+                                        <div class="input-group input-group-sm">
+                                            <input type="number" name="price" class="form-control" value="{{ produkt.price }}" step="0.01" style="width: 80px">
+                                            <button type="submit" class="btn btn-outline-primary">€</button>
+                                        </div>
+                                    </form>
+                                    <form method="POST">
+                                        <input type="hidden" name="action" value="delete_produkt">
+                                        <input type="hidden" name="produkt_id" value="{{ produkt.id }}">
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Produkt wirklich löschen?')">Löschen</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- System-Verwaltung -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>System-Verwaltung</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="{{ url_for('receipt_template') }}" class="btn btn-primary btn-block mb-2">
+                        <i class="fas fa-receipt"></i> Bon-Gestaltung
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <button onclick="cleanupOrders()" class="btn btn-warning btn-block mb-2">
+                        <i class="fas fa-broom"></i> Erledigte Bestellungen löschen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4 class="mb-0">System-Status</h4>
+        </div>
+        <div class="card-body">
+            <p>Letzte Aktualisierung: {{ current_time.strftime('%d.%m.%Y %H:%M') }}</p>
+            <p>Server-Uptime: {{ metrics.uptime }}</p>
+            <p>Aktive Bestellungen: {{ metrics.active_orders }}</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.metric-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+.metric-card:hover {
+    transform: translateY(-2px);
+}
+.metric-card h5 {
+    margin-bottom: 10px;
+    color: #495057;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.metric-card p {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 0;
+    color: #212529;
+}
+.metric-card small {
+    display: block;
+    margin-top: 5px;
+}
+.price-form {
+    max-width: 180px;
+}
+.table-responsive {
+    margin-top: 1rem;
+}
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+</style>
+
+<script>
+// Funktion zum Aktualisieren der Metriken
+function updateMetrics() {
+    fetch('/admin/metrics')
+        .then(response => response.json())
+        .then(data => {
+            // Aktualisiere die Metriken im Dashboard
+            document.getElementById('uptime').textContent = formatUptime(data.uptime);
+            document.getElementById('request-count').textContent = data.request_count;
+            document.getElementById('cpu-usage').textContent = data.cpu_percent.toFixed(1) + '%';
+            document.getElementById('memory-usage').textContent = data.memory_usage.toFixed(1) + ' MB';
+            document.getElementById('memory-percent').textContent = data.memory_percent.toFixed(1) + '%';
+            document.getElementById('thread-count').textContent = data.thread_count;
+            document.getElementById('disk-usage').textContent = data.disk_usage.toFixed(1) + '%';
+        })
+        .catch(error => console.error('Fehler beim Laden der Metriken:', error));
+}
+
+// Formatiere die Uptime in lesbares Format
+function formatUptime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${hours}h ${minutes}m ${secs}s`;
+}
+
+// Starte das automatische Update
+updateMetrics(); // Erste Aktualisierung sofort
+setInterval(updateMetrics, 1000); // Dann alle 1 Sekunde
+</script>
+{% endblock %} 

@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestellungen</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            padding: 10px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #333;
+        }
+
+        .table-input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100px;
+        }
+
+        .main-content {
+            margin-top: 70px;
+            padding-bottom: 60px;
+        }
+
+        .category-section {
+            margin-bottom: 20px;
+        }
+
+        .category-title {
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            font-size: 1.2rem;
+        }
+
+        .product-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+            position: relative;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 5px;
+            width: calc(100% - 10px);
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .product-item:active {
+            transform: scale(0.98);
+            background-color: #f8f9fa;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .product-price {
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 5px;
+            font-size: 0.9em;
+            width: 100%;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .product-quantity {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal-title {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .confirm-button {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .cancel-button {
+            background: #f44336;
+            color: white;
+        }
+
+        .flash-message {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1000;
+            animation: fadeOut 3s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .admin-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .admin-link:hover {
+            color: #333;
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 8px;
+                padding: 8px;
+            }
+
+            .product-item {
+                min-height: 100px;
+                padding: 10px;
+            }
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .new-table-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .new-table-btn:hover {
+            background-color: #1976D2;
+        }
+
+        .order-item {
+            position: relative;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-info {
+            flex: 1;
+        }
+
+        .delete-order-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            display: none;
+        }
+
+        .delete-order-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        .admin-mode .delete-order-btn {
+            display: inline-block;
+        }
+
+        .flash-message.error {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        .flash-message.success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .cart-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .cart-button .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #f44336;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn.remove {
+            background: #f44336;
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .cart-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .cart-button-submit {
+            flex: 1;
+            padding: 12px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cart-button-cancel {
+            flex: 1;
+            padding: 12px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .product-card.in-cart {
+            background: #e8f5e9;
+        }
+
+        .product-card.in-cart::after {
+            content: '✓';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .order-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .order-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .order-content {
+            margin-bottom: 5px;
+        }
+        .order-price {
+            text-align: right;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .order-total {
+            text-align: right;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        .badge-neu {
+            background-color: #ffc107;
+            color: #000;
+        }
+        .badge-erledigt {
+            background-color: #28a745;
+            color: #fff;
+        }
+        .badge-archiviert {
+            background-color: #6c757d;
+            color: #fff;
+        }
+        .product-price {
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        
+        .cart-item-price {
+            color: #28a745;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .cart-item-total {
+            color: #28a745;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .comment-dialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .comment-dialog textarea {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        
+        .dialog-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .dialog-buttons button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .dialog-buttons .save-btn {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .dialog-buttons .cancel-btn {
+            background: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Bestellungen - Tisch {{ session['current_table'] }}</h1>
+        <div class="header-buttons">
+            <a href="{{ url_for('new_table') }}" class="new-table-btn">Neuer Tisch</a>
+            <a href="{{ url_for('admin_login') }}" class="admin-link">Admin</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        {% for kategorie in kategorien %}
+            <div class="category-section">
+                <div class="category-title">{{ kategorie.name }}</div>
+                <div class="products-grid">
+                    {% for produkt in produkte %}
+                        {% if produkt.kategorie == kategorie.id %}
+                            <div class="product-item" 
+                                 data-product-id="{{ produkt.id }}" 
+                                 data-product-price="{{ produkt.get('price', 0.0) }}">
+                                <div class="product-name">{{ produkt.name }}</div>
+                                <div class="product-price">{{ "%.2f"|format(produkt.get('price', 0.0)) }}€</div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <button class="cart-button" onclick="showCart()">
+        🛒
+        <span class="badge" id="cart-badge" style="display: none;">0</span>
+    </button>
+
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <h2>Warenkorb</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                Gesamt: <span id="cartTotal">0</span> Artikel
+            </div>
+            <div class="cart-buttons">
+                <button type="button" class="cart-button-cancel" onclick="closeCart()">Abbrechen</button>
+                <button type="button" class="cart-button-submit" onclick="submitAllOrders()">Bestellen</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="commentDialog" class="comment-dialog">
+        <h3>Kommentar hinzufügen</h3>
+        <textarea id="commentInput" placeholder="Geben Sie hier Ihren Kommentar ein..."></textarea>
+        <div class="dialog-buttons">
+            <button class="cancel-btn" onclick="closeCommentDialog()">Abbrechen</button>
+            <button class="save-btn" onclick="saveComment()">Speichern</button>
+        </div>
+    </div>
+
+    <script>
+        let currentProduct = null;
+        let touchTimer = null;
+        const TOUCH_DURATION = 500; // 500ms für Langdruck
+        let cart = new Map();
+        let touchStartTime = 0;
+        let touchStartY = 0;
+        let isLongPress = false;
+        let touchMoved = false;
+        const TOUCH_MOVE_THRESHOLD = 10;
+        const MAX_CART_ITEMS = 50; // Maximale Anzahl von Artikeln im Warenkorb
+        const MAX_ITEM_QUANTITY = 99; // Maximale Menge pro Artikel
+
+        // Lade gespeicherten Warenkorb beim Start
+        function loadCart() {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                try {
+                    const parsedCart = JSON.parse(savedCart);
+                    // Konvertiere das Objekt zurück in eine Map und validiere die Daten
+                    cart = new Map();
+                    for (const [key, value] of Object.entries(parsedCart)) {
+                        if (value && typeof value === 'object' && 'name' in value && 'menge' in value) {
+                            // Stelle sicher, dass die Menge gültig ist
+                            value.menge = Math.min(Math.max(1, parseInt(value.menge) || 1), MAX_ITEM_QUANTITY);
+                            cart.set(key, value);
+                        }
+                    }
+                    console.log('Warenkorb geladen:', cart);
+                    updateCartBadge();
+                    updateCartDisplay();
+                } catch (e) {
+                    console.error('Fehler beim Laden des Warenkorbs:', e);
+                    cart = new Map();
+                    localStorage.removeItem('cart'); // Lösche ungültige Daten
+                }
+            }
+        }
+
+        // Speichere Warenkorb bei Änderungen
+        function saveCart() {
+            try {
+                const cartObject = Object.fromEntries(cart);
+                localStorage.setItem('cart', JSON.stringify(cartObject));
+                console.log('Warenkorb gespeichert:', cartObject);
+            } catch (e) {
+                console.error('Fehler beim Speichern des Warenkorbs:', e);
+                showFlash('Fehler beim Speichern des Warenkorbs', 'error');
+            }
+        }
+
+        // Warenkorb-Funktionen
+        function showCart() {
+            console.log('Öffne Warenkorb');
+            const cartModal = document.getElementById('cartModal');
+            cartModal.style.display = 'flex';
+            updateCartDisplay();
+        }
+
+        function closeCart() {
+            console.log('Schließe Warenkorb');
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cart-badge');
+            const total = Array.from(cart.values()).reduce((sum, item) => sum + item.menge, 0);
+            console.log('Aktualisiere Warenkorb-Badge:', total);
+            if (total > 0) {
+                badge.textContent = total;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        function updateCartDisplay() {
+            console.log('updateCartDisplay: Aktualisiere Warenkorb-Anzeige');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            cartItems.innerHTML = '';
+            let totalItems = 0;
+            let totalPrice = 0;
+            
+            cart.forEach((item, produktId) => {
+                const productElement = document.querySelector(`[data-product-id="${produktId}"]`);
+                if (!productElement) {
+                    console.warn('Produkt nicht gefunden:', produktId);
+                    return;
+                }
+                
+                const price = parseFloat(productElement.dataset.productPrice);
+                const itemTotal = price * item.menge;
+                
+                totalItems += item.menge;
+                totalPrice += itemTotal;
+                
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                const commentHtml = item.kommentar ? `<div class="cart-item-comment">Kommentar: ${item.kommentar}</div>` : '';
+                
+                itemElement.innerHTML = `
+                    <div class="cart-item-info">
+                        <strong>${item.name}</strong>
+                        <span class="cart-item-price">${price.toFixed(2)}€</span>
+                        <div class="cart-item-actions">
+                            <button type="button" class="quantity-btn remove" onclick="updateQuantity('${produktId}', -1)">-</button>
+                            <span>${item.menge}</span>
+                            <button type="button" class="quantity-btn" onclick="updateQuantity('${produktId}', 1)">+</button>
+                            <button type="button" class="quantity-btn remove" onclick="removeFromCart('${produktId}')">🗑️</button>
+                        </div>
+                        ${commentHtml}
+                        <div class="cart-item-total">${itemTotal.toFixed(2)}€</div>
+                    </div>
+                `;
+                cartItems.appendChild(itemElement);
+            });
+            
+            cartTotal.innerHTML = `${totalItems} Artikel (${totalPrice.toFixed(2)}€)`;
+            saveCart(); // Speichere nach jeder Aktualisierung
+        }
+
+        function updateQuantity(produktId, delta) {
+            console.log('Aktualisiere Menge:', produktId, delta);
+            const item = cart.get(produktId);
+            if (item) {
+                const newQuantity = Math.min(Math.max(1, item.menge + delta), MAX_ITEM_QUANTITY);
+                if (newQuantity !== item.menge) {
+                    item.menge = newQuantity;
+                    if (item.menge === 0) {
+                        removeFromCart(produktId);
+                    } else {
+                        updateCartDisplay();
+                        updateCartBadge();
+                    }
+                }
+            }
+        }
+
+        function removeFromCart(produktId) {
+            console.log('Entferne Produkt aus Warenkorb:', produktId);
+            cart.delete(produktId);
+            const card = document.querySelector(`[data-product-id="${produktId}"]`);
+            if (card) {
+                card.classList.remove('in-cart');
+            }
+            updateCartBadge();
+            updateCartDisplay();
+        }
+
+        function addToCart(card) {
+            console.log('Füge Produkt zum Warenkorb hinzu:', card.dataset.productId);
+            const produktId = card.dataset.productId;
+            const produktName = card.querySelector('.product-name').textContent;
+            
+            // Prüfe ob der Warenkorb voll ist
+            if (cart.size >= MAX_CART_ITEMS && !cart.has(produktId)) {
+                showFlash('Warenkorb ist voll (max. ' + MAX_CART_ITEMS + ' verschiedene Artikel)', 'error');
+                return;
+            }
+            
+            if (cart.has(produktId)) {
+                const item = cart.get(produktId);
+                if (item.menge < MAX_ITEM_QUANTITY) {
+                    item.menge += 1;
+                } else {
+                    showFlash('Maximale Menge erreicht (' + MAX_ITEM_QUANTITY + ' Stück)', 'error');
+                    return;
+                }
+            } else {
+                cart.set(produktId, {
+                    name: produktName,
+                    menge: 1,
+                    kommentar: ''
+                });
+            }
+            
+            card.classList.add('in-cart');
+            updateCartBadge();
+            updateCartDisplay();
+            showFlash('Produkt zum Warenkorb hinzugefügt');
+        }
+
+        function submitAllOrders() {
+            console.log('Sende alle Bestellungen');
+            if (cart.size === 0) {
+                showFlash('Warenkorb ist leer', 'error');
+                return;
+            }
+
+            // Deaktiviere den Submit-Button während des Sendens
+            const submitButton = document.querySelector('.cart-button-submit');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Wird gesendet...';
+
+            const orders = Array.from(cart.entries()).map(([produktId, item]) => ({
+                produkt: produktId,
+                menge: item.menge,
+                kommentar: item.kommentar || ''
+            }));
+
+            console.log('Sende Bestellungen:', orders);
+
+            fetch('/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ orders: orders })
+            })
+            .then(response => {
+                console.log('Server-Antwort erhalten:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Bestellungen verarbeitet:', data);
+                if (data.success) {
+                    showFlash(data.message || 'Bestellungen erfolgreich');
+                    cart.clear();
+                    saveCart(); // Speichere leeren Warenkorb
+                    updateCartBadge();
+                    closeCart();
+                    document.querySelectorAll('.product-item.in-cart').forEach(item => {
+                        item.classList.remove('in-cart');
+                    });
+                    location.reload();
+                } else {
+                    throw new Error(data.message || 'Fehler bei den Bestellungen');
+                }
+            })
+            .catch(error => {
+                console.error('Fehler bei den Bestellungen:', error);
+                showFlash('Fehler bei den Bestellungen: ' + error.message, 'error');
+                // Aktiviere den Submit-Button wieder
+                submitButton.disabled = false;
+                submitButton.textContent = 'Bestellen';
+            });
+        }
+
+        // Entferne die alten Event-Listener und füge neue hinzu
+        document.querySelectorAll('.product-item').forEach(card => {
+            let pressTimer = null;
+            let isLongPress = false;
+            let hasAddedToCart = false;
+            let touchStartTime = 0;
+            let touchStartY = 0;
+            let touchMoved = false;
+
+            // Touch-Events
+            card.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                currentProduct = card;
+                hasAddedToCart = false;
+                touchStartTime = Date.now();
+                touchStartY = e.touches[0].clientY;
+                touchMoved = false;
+                
+                pressTimer = setTimeout(() => {
+                    if (!touchMoved) {
+                        isLongPress = true;
+                        showCommentDialog();
+                    }
+                }, TOUCH_DURATION);
+            });
+
+            card.addEventListener('touchmove', (e) => {
+                const touchY = e.touches[0].clientY;
+                const verticalMovement = Math.abs(touchY - touchStartY);
+                
+                if (verticalMovement > TOUCH_MOVE_THRESHOLD) {
+                    touchMoved = true;
+                    if (pressTimer) {
+                        clearTimeout(pressTimer);
+                        pressTimer = null;
+                    }
+                }
+            });
+
+            card.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                const touchEndTime = Date.now();
+                const touchDuration = touchEndTime - touchStartTime;
+                
+                if (pressTimer) {
+                    clearTimeout(pressTimer);
+                    pressTimer = null;
+                }
+
+                if (!touchMoved && touchDuration < TOUCH_DURATION && !isLongPress && !hasAddedToCart) {
+                    hasAddedToCart = true;
+                    addToCart(card);
+                }
+                
+                isLongPress = false;
+                touchMoved = false;
+            });
+
+            card.addEventListener('touchcancel', () => {
+                if (pressTimer) {
+                    clearTimeout(pressTimer);
+                    pressTimer = null;
+                }
+                isLongPress = false;
+                hasAddedToCart = false;
+                touchMoved = false;
+            });
+
+            // Maus-Events
+            card.addEventListener('mousedown', (e) => {
+                if (e.button === 0) { // Linke Maustaste
+                    currentProduct = card;
+                    hasAddedToCart = false;
+                    touchStartTime = Date.now();
+                    
+                    pressTimer = setTimeout(() => {
+                        isLongPress = true;
+                        showCommentDialog();
+                    }, TOUCH_DURATION);
+                }
+            });
+
+            card.addEventListener('mouseup', (e) => {
+                if (e.button === 0) { // Linke Maustaste
+                    const touchEndTime = Date.now();
+                    const touchDuration = touchEndTime - touchStartTime;
+                    
+                    if (pressTimer) {
+                        clearTimeout(pressTimer);
+                        pressTimer = null;
+                    }
+
+                    if (touchDuration < TOUCH_DURATION && !isLongPress && !hasAddedToCart) {
+                        hasAddedToCart = true;
+                        addToCart(card);
+                    }
+                    
+                    isLongPress = false;
+                }
+            });
+
+            card.addEventListener('mouseleave', () => {
+                if (pressTimer) {
+                    clearTimeout(pressTimer);
+                    pressTimer = null;
+                }
+                isLongPress = false;
+                hasAddedToCart = false;
+            });
+        });
+
+        function showCommentDialog() {
+            if (!currentProduct) {
+                console.log('showCommentDialog: Kein aktuelles Produkt');
+                return;
+            }
+            const productName = currentProduct.querySelector('.product-name').textContent;
+            const productId = currentProduct.dataset.productId;
+            console.log('showCommentDialog: Öffne Dialog für Produkt', { productId, productName });
+            
+            // Setze den aktuellen Kommentar, falls vorhanden
+            const currentComment = cart.has(productId) ? cart.get(productId).kommentar : '';
+            
+            document.querySelector('#commentDialog h3').textContent = `Kommentar für ${productName}`;
+            document.getElementById('commentInput').value = currentComment;
+            document.getElementById('commentDialog').style.display = 'block';
+            
+            // Fokussiere das Textfeld
+            document.getElementById('commentInput').focus();
+        }
+        
+        function closeCommentDialog() {
+            console.log('closeCommentDialog: Schließe Dialog');
+            document.getElementById('commentDialog').style.display = 'none';
+            currentProduct = null;
+        }
+        
+        function saveComment() {
+            if (!currentProduct) {
+                console.log('saveComment: Kein aktuelles Produkt');
+                return;
+            }
+            
+            const comment = document.getElementById('commentInput').value.trim();
+            const productId = currentProduct.dataset.productId;
+            const productName = currentProduct.querySelector('.product-name').textContent;
+            console.log('saveComment: Speichere Kommentar', { productId, productName, comment });
+            
+            if (cart.has(productId)) {
+                const item = cart.get(productId);
+                console.log('saveComment: Aktualisiere existierendes Produkt', item);
+                item.kommentar = comment;
+            } else {
+                const newItem = {
+                    name: productName,
+                    menge: 1,
+                    kommentar: comment
+                };
+                console.log('saveComment: Füge neues Produkt hinzu', newItem);
+                cart.set(productId, newItem);
+            }
+            
+            console.log('saveComment: Aktueller Warenkorb', Array.from(cart.entries()));
+            currentProduct.classList.add('in-cart');
+            updateCartBadge();
+            updateCartDisplay();
+            saveCart();
+            closeCommentDialog();
+            showFlash('Produkt mit Kommentar zum Warenkorb hinzugefügt');
+        }
+
+        // Füge Event-Listener für Enter-Taste im Kommentar-Dialog hinzu
+        document.getElementById('commentInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                saveComment();
+            } else if (e.key === 'Escape') {
+                closeCommentDialog();
+            }
+        });
+
+        function showFlash(message, type = 'success') {
+            const flash = document.createElement('div');
+            flash.className = `flash-message ${type}`;
+            flash.textContent = message;
+            document.body.appendChild(flash);
+            
+            setTimeout(() => {
+                flash.remove();
+            }, 3000);
+        }
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    showFlash('{{ message }}', '{{ category }}');
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        function checkAdminStatus() {
+            fetch('/admin/check-status')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.is_admin) {
+                        document.body.classList.add('admin-mode');
+                    }
+                })
+                .catch(error => console.error('Fehler beim Admin-Status-Check:', error));
+        }
+
+        function deleteOrder(orderId) {
+            if (confirm('Möchten Sie diese Bestellung wirklich löschen?')) {
+                fetch(`/delete-order/${orderId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const orderElement = document.querySelector(`[data-order-id="${orderId}"]`);
+                        if (orderElement) {
+                            orderElement.remove();
+                        }
+                        showFlash('Bestellung gelöscht');
+                    } else {
+                        showFlash(data.message || 'Fehler beim Löschen', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Fehler:', error);
+                    showFlash('Fehler beim Löschen', 'error');
+                });
+            }
+        }
+
+        checkAdminStatus();
+
+        // Entferne den automatischen Reload
+        // setInterval(() => {
+        //     location.reload();
+        // }, 30000);
+
+        // Stattdessen nur die Bestellliste aktualisieren
+        function updateOrdersList() {
+            fetch('/orders')
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const newOrdersList = doc.querySelector('.orders-list');
+                    const currentOrdersList = document.querySelector('.orders-list');
+                    if (newOrdersList && currentOrdersList) {
+                        currentOrdersList.innerHTML = newOrdersList.innerHTML;
+                    }
+                })
+                .catch(error => console.error('Fehler beim Aktualisieren der Bestellliste:', error));
+        }
+
+        // Aktualisiere die Bestellliste alle 30 Sekunden
+        setInterval(updateOrdersList, 30000);
+
+        function addOrderToList(order) {
+            console.log('Füge Bestellung zur Liste hinzu:', order);
+            const ordersList = document.querySelector('.orders-list');
+            if (!ordersList) {
+                console.error('Bestellliste nicht gefunden!');
+                return;
+            }
+
+            const orderElement = document.createElement('div');
+            orderElement.className = 'order-item';
+            orderElement.dataset.orderId = order.id;
+            
+            const orderInfo = document.createElement('div');
+            orderInfo.className = 'order-info';
+            
+            let orderHtml = `<strong>${order.menge}x ${order.produkt}</strong>`;
+            if (order.kommentar) {
+                orderHtml += `<br><em>Kommentar: ${order.kommentar}</em>`;
+            }
+            orderHtml += `<br><small>${order.zeitpunkt.replace('T', ' ').replace('Z', '').slice(0, 16)}</small>`;
+            
+            orderInfo.innerHTML = orderHtml;
+            
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'delete-order-btn';
+            deleteButton.textContent = 'Löschen';
+            deleteButton.onclick = () => deleteOrder(order.id);
+            
+            orderElement.appendChild(orderInfo);
+            orderElement.appendChild(deleteButton);
+            
+            ordersList.insertBefore(orderElement, ordersList.firstChild);
+            console.log('Bestellung erfolgreich zur Liste hinzugefügt');
+        }
+
+        // Initialisiere den Warenkorb
+        updateCartBadge();
+        updateCartDisplay();
+
+        // Lade den Warenkorb beim Start
+        loadCart();
+    </script>
+
+    <div class="orders-list">
+        {% for bestellung in bestellungen %}
+            <div class="order-item" data-order-id="{{ bestellung.id }}">
+                <div class="order-info">
+                    <strong>{{ bestellung.menge }}x {{ bestellung.produkt }}</strong>
+                    {% if bestellung.kommentar %}
+                        <br><em>Kommentar: {{ bestellung.kommentar }}</em>
+                    {% endif %}
+                    <br>
+                    <small>{{ bestellung.zeitpunkt|replace('T', ' ')|replace('Z', '')|truncate(16, True, '') }}</small>
+                </div>
+                <button class="delete-order-btn" onclick="deleteOrder({{ bestellung.id }})">Löschen</button>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

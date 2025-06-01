@@ -1,0 +1,17 @@
+[Unit]
+Description=Bestellungssystem Service
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+Group=lp
+WorkingDirectory=/home/pi/Bestellungssystem
+Environment="FLASK_ENV=production"
+Environment="FLASK_APP=app.py"
+ExecStart=/home/pi/Bestellungssystem/.venv/bin/python3 /home/pi/Bestellungssystem/app.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 
