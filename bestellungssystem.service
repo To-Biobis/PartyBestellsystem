@@ -1,15 +1,15 @@
 [Unit]
-Description=Bestellungssystem Service
+Description=PartyBestellsystem Service
 After=network.target
 
 [Service]
 Type=simple
 User=pi
 Group=lp
-WorkingDirectory=/home/pi/Bestellungssystem
+WorkingDirectory=/home/pi/PartyBestellsystem
 Environment="FLASK_ENV=production"
-Environment="FLASK_APP=app.py"
-ExecStart=/home/pi/Bestellungssystem/.venv/bin/python3 /home/pi/Bestellungssystem/app.py
+Environment="PYTHONPATH=/home/pi/PartyBestellsystem"
+ExecStart=/home/pi/PartyBestellsystem/.venv/bin/python3 /home/pi/PartyBestellsystem/run.py
 Restart=always
 RestartSec=10
 
