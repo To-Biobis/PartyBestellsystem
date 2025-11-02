@@ -42,6 +42,7 @@ class DataStorage:
     
     def save_data(self, file_path, data):
         """Speichert Daten atomar in eine JSON-Datei"""
+        temp_file = None
         try:
             # Erstelle temporäre Datei
             temp_file = tempfile.NamedTemporaryFile(
@@ -67,8 +68,11 @@ class DataStorage:
             return True
         except Exception as e:
             logger.error(f"Fehler beim Speichern der Daten in {file_path}: {str(e)}")
-            if os.path.exists(temp_file.name):
-                os.unlink(temp_file.name)
+            if temp_file and hasattr(temp_file, 'name') and os.path.exists(temp_file.name):
+                try:
+                    os.unlink(temp_file.name)
+                except:
+                    pass
             return False
     
     def _create_backup(self, file_path):
