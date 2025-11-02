@@ -263,8 +263,85 @@
             align-items: center;
         }
 
+        .order-item.status-neu {
+            background-color: #fff9c4;
+            border-left: 4px solid #FFC107;
+        }
+
+        .order-item.status-in_druck {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196F3;
+        }
+
+        .order-item.status-erledigt {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+        }
+
         .order-info {
             flex: 1;
+        }
+
+        .order-status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .order-status-badge.status-neu {
+            background-color: #FFC107;
+            color: #000;
+        }
+
+        .order-status-badge.status-in_druck {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .order-status-badge.status-erledigt {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .order-summary {
+            background: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .summary-item {
+            flex: 1;
+        }
+
+        .summary-count {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .summary-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .summary-count.neu {
+            color: #FFC107;
+        }
+
+        .summary-count.printing {
+            color: #2196F3;
+        }
+
+        .summary-count.done {
+            color: #4CAF50;
         }
 
         .delete-order-btn {
@@ -565,6 +642,31 @@
         <div class="header-buttons">
             <a href="{{ url_for('new_table') }}" class="new-table-btn">Neuer Tisch</a>
             <a href="{{ url_for('admin_login') }}" class="admin-link">Admin</a>
+        </div>
+    </div>
+
+    <!-- Order Status Summary -->
+    <div class="order-summary">
+        <div class="summary-item">
+            <div class="summary-count neu" id="newOrdersCount">
+                {% set neu_count = bestellungen|selectattr('status', 'equalto', 'neu')|list|length %}
+                {{ neu_count }}
+            </div>
+            <div class="summary-label">Neu / Wartet</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-count printing" id="printingOrdersCount">
+                {% set druck_count = bestellungen|selectattr('status', 'equalto', 'in_druck')|list|length %}
+                {{ druck_count }}
+            </div>
+            <div class="summary-label">Wird gedruckt</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-count done" id="doneOrdersCount">
+                {% set erledigt_count = bestellungen|selectattr('status', 'equalto', 'erledigt')|list|length %}
+                {{ erledigt_count }}
+            </div>
+            <div class="summary-label">Gedruckt</div>
         </div>
     </div>
 
@@ -1104,6 +1206,25 @@
         //     location.reload();
         // }, 30000);
 
+        // Funktion zum Aktualisieren der Status-Zusammenfassung
+        function updateStatusSummary() {
+            const orderItems = document.querySelectorAll('.order-item');
+            let neuCount = 0;
+            let druckCount = 0;
+            let erledigtCount = 0;
+
+            orderItems.forEach(item => {
+                const status = item.dataset.status;
+                if (status === 'neu') neuCount++;
+                else if (status === 'in_druck') druckCount++;
+                else if (status === 'erledigt') erledigtCount++;
+            });
+
+            document.getElementById('newOrdersCount').textContent = neuCount;
+            document.getElementById('printingOrdersCount').textContent = druckCount;
+            document.getElementById('doneOrdersCount').textContent = erledigtCount;
+        }
+
         // Stattdessen nur die Bestellliste aktualisieren
         function updateOrdersList() {
             fetch('/orders')
@@ -1113,15 +1234,28 @@
                     const doc = parser.parseFromString(html, 'text/html');
                     const newOrdersList = doc.querySelector('.orders-list');
                     const currentOrdersList = document.querySelector('.orders-list');
+                    const newSummary = doc.querySelector('.order-summary');
+                    const currentSummary = document.querySelector('.order-summary');
+                    
                     if (newOrdersList && currentOrdersList) {
                         currentOrdersList.innerHTML = newOrdersList.innerHTML;
                     }
+                    
+                    if (newSummary && currentSummary) {
+                        currentSummary.innerHTML = newSummary.innerHTML;
+                    }
+                    
+                    // Update counts
+                    updateStatusSummary();
                 })
                 .catch(error => console.error('Fehler beim Aktualisieren der Bestellliste:', error));
         }
 
-        // Aktualisiere die Bestellliste alle 30 Sekunden
-        setInterval(updateOrdersList, 30000);
+        // Aktualisiere die Bestellliste alle 10 Sekunden für bessere Echtzeit-Updates
+        setInterval(updateOrdersList, 10000);
+        
+        // Initiale Status-Zusammenfassung beim Laden
+        updateStatusSummary();
 
         function addOrderToList(order) {
             console.log('Füge Bestellung zur Liste hinzu:', order);
@@ -1132,13 +1266,20 @@
             }
 
             const orderElement = document.createElement('div');
-            orderElement.className = 'order-item';
+            const status = order.status || 'neu';
+            orderElement.className = `order-item status-${status}`;
             orderElement.dataset.orderId = order.id;
+            orderElement.dataset.status = status;
             
             const orderInfo = document.createElement('div');
             orderInfo.className = 'order-info';
             
+            let statusText = '⏳ Neu';
+            if (status === 'in_druck') statusText = '🖨️ Druckt';
+            else if (status === 'erledigt') statusText = '✓ Gedruckt';
+            
             let orderHtml = `<strong>${order.menge}x ${order.produkt}</strong>`;
+            orderHtml += `<span class="order-status-badge status-${status}">${statusText}</span>`;
             if (order.kommentar) {
                 orderHtml += `<br><em>Kommentar: ${order.kommentar}</em>`;
             }
@@ -1156,6 +1297,9 @@
             
             ordersList.insertBefore(orderElement, ordersList.firstChild);
             console.log('Bestellung erfolgreich zur Liste hinzugefügt');
+            
+            // Aktualisiere die Status-Zusammenfassung
+            updateStatusSummary();
         }
 
         // Initialisiere den Warenkorb
@@ -1168,14 +1312,26 @@
 
     <div class="orders-list">
         {% for bestellung in bestellungen %}
-            <div class="order-item" data-order-id="{{ bestellung.id }}">
+            <div class="order-item status-{{ bestellung.status }}" data-order-id="{{ bestellung.id }}" data-status="{{ bestellung.status }}">
                 <div class="order-info">
                     <strong>{{ bestellung.menge }}x {{ bestellung.produkt }}</strong>
+                    <span class="order-status-badge status-{{ bestellung.status }}">
+                        {% if bestellung.status == 'neu' %}
+                            ⏳ Neu
+                        {% elif bestellung.status == 'in_druck' %}
+                            🖨️ Druckt
+                        {% elif bestellung.status == 'erledigt' %}
+                            ✓ Gedruckt
+                        {% endif %}
+                    </span>
                     {% if bestellung.kommentar %}
                         <br><em>Kommentar: {{ bestellung.kommentar }}</em>
                     {% endif %}
                     <br>
                     <small>{{ bestellung.zeitpunkt|replace('T', ' ')|replace('Z', '')|truncate(16, True, '') }}</small>
+                    {% if bestellung.status == 'erledigt' and bestellung.get('erledigt_um') %}
+                        <br><small style="color: #4CAF50;">✓ Gedruckt um {{ bestellung.erledigt_um|replace('T', ' ')|replace('Z', '')|truncate(16, True, '') }}</small>
+                    {% endif %}
                 </div>
                 <button class="delete-order-btn" onclick="deleteOrder({{ bestellung.id }})">Löschen</button>
             </div>
