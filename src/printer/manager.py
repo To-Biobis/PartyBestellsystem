@@ -3,9 +3,17 @@
 import logging
 import time
 from threading import Lock
-from escpos.printer import Usb
 
 logger = logging.getLogger(__name__)
+
+# Try to import escpos, but don't fail if not available (for testing)
+try:
+    from escpos.printer import Usb
+    PRINTER_AVAILABLE = True
+except ImportError:
+    logger.warning("escpos library not available - printer functionality disabled")
+    PRINTER_AVAILABLE = False
+    Usb = None
 
 
 class PrinterManager:
@@ -55,6 +63,9 @@ class PrinterManager:
     
     def _connect_printer(self):
         """Stellt Verbindung zum Drucker her"""
+        if not PRINTER_AVAILABLE or Usb is None:
+            raise RuntimeError("Printer library not available")
+            
         try:
             # Versuche Standard-Endpunkte
             printer = Usb(
