@@ -41,6 +41,7 @@ app.log*
 data/*.json
 data/backups/**
 !data/.gitkeep
+!data/printer_config.example.json
 
 # OS
 .DS_Store

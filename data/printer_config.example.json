@@ -1,0 +1,105 @@
+{
+  "printers": [
+    {
+      "printer_id": "default",
+      "name": "Default Printer",
+      "vendor_id": 1208,
+      "product_id": 3605,
+      "categories": [],
+      "enabled": true
+    }
+  ],
+  "_comment": "This is an example configuration file for multiple printers",
+  "_examples": {
+    "kitchen_bar_setup": {
+      "description": "Separate printers for kitchen and bar",
+      "printers": [
+        {
+          "printer_id": "kitchen",
+          "name": "Kitchen Printer",
+          "vendor_id": 1208,
+          "product_id": 3605,
+          "categories": ["Vorspeisen", "Hauptgerichte", "Beilagen", "Desserts"],
+          "enabled": true
+        },
+        {
+          "printer_id": "bar",
+          "name": "Bar Printer",
+          "vendor_id": 1208,
+          "product_id": 3605,
+          "categories": ["Getränke", "Cocktails", "Bier", "Wein"],
+          "enabled": true
+        }
+      ]
+    },
+    "multi_location": {
+      "description": "Multiple service points at events",
+      "printers": [
+        {
+          "printer_id": "station1",
+          "name": "Food Station 1",
+          "vendor_id": 1208,
+          "product_id": 3605,
+          "categories": ["Burger", "Pizza"],
+          "enabled": true
+        },
+        {
+          "printer_id": "station2",
+          "name": "Drinks Station",
+          "vendor_id": 1208,
+          "product_id": 3605,
+          "categories": ["Softdrinks", "Bier", "Cocktails"],
+          "enabled": true
+        },
+        {
+          "printer_id": "station3",
+          "name": "Desserts & Coffee",
+          "vendor_id": 1208,
+          "product_id": 3605,
+          "categories": ["Kuchen", "Eis", "Kaffee"],
+          "enabled": true
+        }
+      ]
+    },
+    "with_backup": {
+      "description": "Main printer with backup",
+      "printers": [
+        {
+          "printer_id": "main",
+          "name": "Main Printer",
+          "vendor_id": 1208,
+          "product_id": 3605,
+          "categories": [],
+          "enabled": true
+        },
+        {
+          "printer_id": "backup",
+          "name": "Backup Printer",
+          "vendor_id": 1208,
+          "product_id": 3606,
+          "categories": [],
+          "enabled": false,
+          "note": "Enable this if main printer fails"
+        }
+      ]
+    }
+  },
+  "_notes": {
+    "vendor_id": "USB Vendor ID in decimal format. Find with 'lsusb'. Example: 0x04b8 (hex) = 1208 (decimal)",
+    "product_id": "USB Product ID in decimal format. Example: 0x0e15 (hex) = 3605 (decimal)",
+    "categories": "Array of category names. Empty array [] means this printer handles all categories (default printer)",
+    "enabled": "Set to false to temporarily disable a printer without deleting its configuration",
+    "printer_id": "Must be unique. Used internally to identify the printer",
+    "common_vendor_ids": {
+      "Epson": "0x04b8 (1208 decimal)",
+      "Star": "0x0519 (1305 decimal)",
+      "Citizen": "0x2730 (10032 decimal)",
+      "Bixolon": "0x1504 (5380 decimal)"
+    },
+    "common_product_ids": {
+      "Epson TM-T20II": "0x0e15 (3605 decimal)",
+      "Epson TM-T88V": "0x0202 (514 decimal)",
+      "Epson TM-m30": "0x0e28 (3624 decimal)"
+    }
+  }
+}

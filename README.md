@@ -12,6 +12,8 @@ Ein modernes, zuverlässiges Bestellsystem für Gastronomie und Events mit autom
 - 💾 Automatische Backups
 - 🔒 Thread-sichere Datenverarbeitung
 - 🏗️ Modulare, wartbare Architektur
+- 🖨️ **NEU:** Multi-Drucker-Support mit Kategorie-Routing
+- 📡 **NEU:** WiFi Access Point Modus für eigenständiges Netzwerk
 
 ## Neu in Version 2.0
 
@@ -21,6 +23,9 @@ Ein modernes, zuverlässiges Bestellsystem für Gastronomie und Events mit autom
 - 🔧 Einfachere Wartung und Erweiterbarkeit
 - 📦 Klare Trennung der Verantwortlichkeiten
 - 🚀 Optimierte Performance
+- 🖨️ Modulares Multi-Drucker-System
+- 📡 WiFi Access Point für eigenständigen Betrieb
+- ⚙️ Verbessertes Installationsskript mit umfassender Fehlerbehandlung
 
 ## Architektur
 
@@ -105,17 +110,64 @@ export FLASK_ENV="production"
 
 ### Drucker-Konfiguration
 
-Die Drucker-Konfiguration befindet sich in `src/config/settings.py`:
+#### Einzelner Drucker
+
+Die Standard-Drucker-Konfiguration befindet sich in `src/config/settings.py`:
 
 ```python
 PRINTER_VENDOR_ID = 0x04b8  # Epson Vendor ID
 PRINTER_PRODUCT_ID = 0x0e15  # TM-T20II Product ID
 ```
 
+#### Mehrere Drucker (Multi-Printer Setup)
+
+Für mehrere Drucker mit Kategorie-Routing siehe **[MULTI_PRINTER_SETUP.md](MULTI_PRINTER_SETUP.md)**
+
+Beispiel-Konfiguration in `data/printer_config.json`:
+
+```json
+{
+  "printers": [
+    {
+      "printer_id": "kitchen",
+      "name": "Kitchen Printer",
+      "vendor_id": 1208,
+      "product_id": 3605,
+      "categories": ["Essen", "Desserts"],
+      "enabled": true
+    },
+    {
+      "printer_id": "bar",
+      "name": "Bar Printer",
+      "vendor_id": 1208,
+      "product_id": 3605,
+      "categories": ["Getränke"],
+      "enabled": true
+    }
+  ]
+}
+```
+
 Unterstützte Drucker:
 - Epson TM-T20II
 - Epson TM-T88V
 - Andere ESC/POS kompatible Drucker
+
+### WiFi Access Point Einrichtung
+
+Um das System als eigenständiges WiFi-Netzwerk zu betreiben:
+
+```bash
+sudo bash setup-wifi-ap.sh
+```
+
+Detaillierte Anleitung: **[WIFI_AP_SETUP.md](WIFI_AP_SETUP.md)**
+
+Dies ermöglicht:
+- Eigenständiges WiFi-Netzwerk ohne externe Router
+- Direkte Verbindung von Bestellgeräten
+- Multi-Drucker-Setups mit mehreren Raspberry Pis
+- Mobile und Event-Einsätze
 
 ## Verwendung
 
