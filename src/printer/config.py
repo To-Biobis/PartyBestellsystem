@@ -18,8 +18,8 @@ class PrinterConfig:
         Args:
             printer_id: Unique identifier for the printer
             name: Human-readable printer name
-            vendor_id: USB vendor ID (hex)
-            product_id: USB product ID (hex)
+            vendor_id: USB vendor ID in decimal format (e.g., 0x04b8 = 1208)
+            product_id: USB product ID in decimal format (e.g., 0x0e15 = 3605)
             categories: List of category names this printer handles
             enabled: Whether the printer is active
         """

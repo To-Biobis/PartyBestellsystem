@@ -43,14 +43,29 @@ The script will:
 After running the script, the following settings will be active:
 
 - **SSID**: `PartyBestellsystem`
-- **Password**: `party2024`
+- **Password**: `party2024` ⚠️ **CHANGE THIS IN PRODUCTION!**
 - **IP Address**: `192.168.4.1`
 - **DHCP Range**: `192.168.4.2` - `192.168.4.20`
 - **DNS**: Google DNS (8.8.8.8, 8.8.4.4)
 
+**SECURITY WARNING**: The default password is weak and publicly visible. Change it before production use!
+
 ## Customizing the Configuration
 
 ### Changing Network Settings
+
+**Recommended Method: Using Environment Variables**
+
+```bash
+# Set custom configuration via environment variables
+WIFI_SSID="MyCustomSSID" \
+WIFI_PASSWORD="MyVerySecurePassword123!" \
+WIFI_CHANNEL=11 \
+AP_IP_ADDRESS="192.168.10.1" \
+sudo -E bash setup-wifi-ap.sh
+```
+
+**Alternative: Edit Script Directly**
 
 Before running the setup script, edit it to change default values:
 
@@ -61,12 +76,12 @@ nano setup-wifi-ap.sh
 Find and modify these variables:
 
 ```bash
-SSID="PartyBestellsystem"      # Change to your desired network name
-PASSWORD="party2024"            # Change to your desired password (min 8 chars)
-CHANNEL=6                       # WiFi channel (1-11)
-IP_ADDRESS="192.168.4.1"        # Router IP address
-DHCP_START="192.168.4.2"        # Start of DHCP range
-DHCP_END="192.168.4.20"         # End of DHCP range
+SSID="${WIFI_SSID:-PartyBestellsystem}"      # Change to your desired network name
+PASSWORD="${WIFI_PASSWORD:-party2024}"        # Change to your desired password (min 8 chars) - CHANGE THIS!
+CHANNEL="${WIFI_CHANNEL:-6}"                  # WiFi channel (1-11)
+IP_ADDRESS="${AP_IP_ADDRESS:-192.168.4.1}"   # Router IP address
+DHCP_START="${DHCP_START:-192.168.4.2}"      # Start of DHCP range
+DHCP_END="${DHCP_END:-192.168.4.20}"         # End of DHCP range
 ```
 
 ### Manual Configuration

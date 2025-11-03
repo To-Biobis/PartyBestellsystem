@@ -287,18 +287,22 @@ fi
 log_info "Initialisiere Datendateien..."
 if [ ! -f "$INSTALL_DIR/data/categories.json" ]; then
     echo '[]' > "$INSTALL_DIR/data/categories.json"
+    chown $ACTUAL_USER:$ACTUAL_USER "$INSTALL_DIR/data/categories.json"
     log_info "categories.json erstellt"
 fi
 if [ ! -f "$INSTALL_DIR/data/products.json" ]; then
     echo '[]' > "$INSTALL_DIR/data/products.json"
+    chown $ACTUAL_USER:$ACTUAL_USER "$INSTALL_DIR/data/products.json"
     log_info "products.json erstellt"
 fi
 if [ ! -f "$INSTALL_DIR/data/orders.json" ]; then
     echo '[]' > "$INSTALL_DIR/data/orders.json"
+    chown $ACTUAL_USER:$ACTUAL_USER "$INSTALL_DIR/data/orders.json"
     log_info "orders.json erstellt"
 fi
 if [ ! -f "$INSTALL_DIR/data/printer_config.json" ]; then
     echo '{"printers": []}' > "$INSTALL_DIR/data/printer_config.json"
+    chown $ACTUAL_USER:$ACTUAL_USER "$INSTALL_DIR/data/printer_config.json"
     log_info "printer_config.json erstellt"
 fi
 

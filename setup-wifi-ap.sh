@@ -37,13 +37,26 @@ log_step() {
     echo "======================================"
 }
 
-# Configuration variables
-SSID="PartyBestellsystem"
-PASSWORD="party2024"
-CHANNEL=6
-IP_ADDRESS="192.168.4.1"
-DHCP_START="192.168.4.2"
-DHCP_END="192.168.4.20"
+# Configuration variables - CHANGE THESE BEFORE RUNNING IN PRODUCTION!
+SSID="${WIFI_SSID:-PartyBestellsystem}"
+PASSWORD="${WIFI_PASSWORD:-party2024}"  # SECURITY WARNING: Change this default password!
+CHANNEL="${WIFI_CHANNEL:-6}"
+IP_ADDRESS="${AP_IP_ADDRESS:-192.168.4.1}"
+DHCP_START="${DHCP_START:-192.168.4.2}"
+DHCP_END="${DHCP_END:-192.168.4.20}"
+
+# Password security check
+if [ "$PASSWORD" = "party2024" ]; then
+    log_warn "Using default password 'party2024' - INSECURE!"
+    log_warn "Set WIFI_PASSWORD environment variable or edit script before production use"
+    log_warn "Example: WIFI_PASSWORD='YourSecurePassword' sudo -E bash setup-wifi-ap.sh"
+fi
+
+# Password length check
+if [ ${#PASSWORD} -lt 8 ]; then
+    log_error "WiFi password must be at least 8 characters long"
+    exit 1
+fi
 
 log_step "WiFi Access Point Setup"
 

@@ -101,8 +101,8 @@ class MultiPrinterManager:
             for printer_manager in self.printer_managers.values():
                 try:
                     printer_manager.release_printer()
-                except:
-                    pass
+                except Exception as e:
+                    logger.error(f"Error releasing printer: {e}")
             
             self.printer_managers.clear()
         
