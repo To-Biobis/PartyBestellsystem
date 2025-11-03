@@ -26,6 +26,7 @@ class Config:
     CATEGORIES_FILE = os.path.join(DATA_DIR, 'categories.json')
     PRODUCTS_FILE = os.path.join(DATA_DIR, 'products.json')
     RECEIPT_TEMPLATE_FILE = os.path.join(DATA_DIR, 'receipt_template.json')
+    PRINTER_CONFIG_FILE = os.path.join(DATA_DIR, 'printer_config.json')
     
     # Backup-Einstellungen
     MAX_BACKUPS = 5

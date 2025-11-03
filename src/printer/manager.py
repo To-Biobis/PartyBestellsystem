@@ -50,8 +50,8 @@ class PrinterManager:
                     if self.printer is not None:
                         try:
                             self.printer.close()
-                        except:
-                            pass
+                        except Exception as e:
+                            logger.debug(f"Error closing old printer connection: {e}")
                     
                     self.printer = self._connect_printer()
                     self.last_used = current_time
@@ -100,8 +100,8 @@ class PrinterManager:
             if self.printer is not None:
                 try:
                     self.printer.close()
-                except:
-                    pass
+                except Exception as e:
+                    logger.debug(f"Error closing printer: {e}")
                 self.printer = None
     
     def test_connection(self):
