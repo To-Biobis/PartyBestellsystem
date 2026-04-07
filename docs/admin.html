@@ -298,23 +298,6 @@
     let activeTab = 'essen';
     const activeFilters = { essen: 'all', trinken: 'all', alle: 'all' };
 
-    function switchTab(name) {
-        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-        document.getElementById('tab-' + name).classList.add('active');
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            if (btn.textContent.toLowerCase().includes(name === 'alle' ? 'alle' :
-                    name === 'essen' ? 'essen' : name === 'trinken' ? 'trinken' :
-                    name === 'produkte' ? 'produkte' : 'einstell')) {
-                btn.classList.add('active');
-            }
-        });
-        activeTab = name;
-        if (name === 'essen' || name === 'trinken' || name === 'alle') renderOrders(name);
-        else if (name === 'produkte') renderManagement();
-    }
-
-    // Fix tab activation – simpler approach
     document.querySelectorAll('.tab-btn').forEach((btn, i) => {
         const tabs = ['essen','trinken','alle','produkte','einstellungen'];
         btn.dataset.tab = tabs[i];

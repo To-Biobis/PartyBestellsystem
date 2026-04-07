@@ -503,7 +503,7 @@
 
             saveOrders(orders);
 
-            // Save receipt data for potential print view
+            // Save receipt snapshot so a future print/receipt page can read it
             try {
                 const receiptItems = Array.from(cart.entries()).map(([id, item]) => {
                     const p = products.find(pr => String(pr.id) === id);
