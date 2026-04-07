@@ -90,10 +90,7 @@ def start_print_worker():
     """
     try:
         if print_queue_manager.start_worker():
-            logger.info(
-                "CUPS-Drucker-Worker erfolgreich gestartet "
-                "(Server: %s:%d)", Config.CUPS_SERVER, Config.CUPS_PORT
-            )
+            logger.info("CUPS-Drucker-Worker erfolgreich gestartet (Server: %s:%d)", Config.CUPS_SERVER, Config.CUPS_PORT)
             return True
         else:
             logger.warning(

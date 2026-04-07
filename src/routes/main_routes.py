@@ -70,6 +70,7 @@ def register_routes(app, order_manager):
         if 'current_table' not in session:
             return redirect(url_for('table_selection'))
 
+        from datetime import datetime
         order_manager.reload_data()
         tisch = str(session['current_table'])
         tisch_bestellungen = order_manager.get_orders_by_table(tisch)
@@ -81,6 +82,7 @@ def register_routes(app, order_manager):
             kategorien=order_manager.categories,
             bestellungen=tisch_bestellungen,
             gesamtpreis=gesamtpreis,
+            print_timestamp=datetime.now().strftime('%d.%m.%Y %H:%M'),
         )
 
     @app.before_request
