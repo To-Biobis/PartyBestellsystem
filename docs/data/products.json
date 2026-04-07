@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Essen",
+    "kategorie": 1,
+    "price": 0.0
+  },
+  {
+    "id": 2,
+    "name": "Trinken",
+    "kategorie": 2,
+    "price": 0.0
+  },
+  {
+    "id": 3,
+    "name": "Schweinebraten",
+    "kategorie": 1,
+    "price": 12.5
+  },
+  {
+    "id": 4,
+    "name": "Schupfnudeln",
+    "kategorie": 1,
+    "price": 6.5
+  },
+  {
+    "id": 5,
+    "name": "Bockwurst",
+    "kategorie": 1,
+    "price": 6.0
+  },
+  {
+    "id": 6,
+    "name": "Pommes",
+    "kategorie": 1,
+    "price": 3.0
+  },
+  {
+    "id": 7,
+    "name": "Steak",
+    "kategorie": 1,
+    "price": 7.0
+  },
+  {
+    "id": 8,
+    "name": "500ml Radler",
+    "kategorie": 2,
+    "price": 3.0
+  },
+  {
+    "id": 9,
+    "name": "Limo Gelb",
+    "kategorie": 2,
+    "price": 2.5
+  },
+  {
+    "id": 10,
+    "name": "Limo Weiß",
+    "kategorie": 2,
+    "price": 2.5
+  },
+  {
+    "id": 11,
+    "name": "1l Bier",
+    "kategorie": 2,
+    "price": 6.0
+  },
+  {
+    "id": 12,
+    "name": "1l Radler",
+    "kategorie": 2,
+    "price": 6.0
+  },
+  {
+    "id": 13,
+    "name": "500ml Gaiß",
+    "kategorie": 2,
+    "price": 4.0
+  },
+  {
+    "id": 14,
+    "name": "Maß Gaiß",
+    "kategorie": 2,
+    "price": 8.0
+  },
+  {
+    "id": 15,
+    "name": "Glas Wein (rose)",
+    "kategorie": 2,
+    "price": 3.0
+  },
+  {
+    "id": 16,
+    "name": "Bockwurst im Semmel",
+    "kategorie": 1,
+    "price": 4.5
+  },
+  {
+    "id": 17,
+    "name": "Steaksemmel",
+    "kategorie": 1,
+    "price": 5.5
+  },
+  {
+    "id": 18,
+    "name": "500ml Bier",
+    "kategorie": 2,
+    "price": 3.5
+  }
+]

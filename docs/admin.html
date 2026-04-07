@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin – Bestellsystem</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+
+        .header {
+            background: white; padding: 12px 16px;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;
+        }
+        .header h1 { font-size: 1.3rem; color: #333; }
+        .header-links { display: flex; gap: 10px; align-items: center; }
+        .header-links a, .header-links button {
+            color: #666; text-decoration: none; font-size: 0.85rem;
+            background: none; border: none; cursor: pointer; padding: 0;
+        }
+        .header-links a:hover, .header-links button:hover { color: #333; }
+
+        .tabs {
+            display: flex; background: white;
+            border-bottom: 2px solid #e0e0e0; overflow-x: auto;
+        }
+        .tab-btn {
+            padding: 12px 18px; border: none; background: none;
+            cursor: pointer; font-size: 0.95rem; color: #666;
+            border-bottom: 3px solid transparent; transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .tab-btn.active { color: #4CAF50; border-bottom-color: #4CAF50; font-weight: bold; }
+        .tab-btn:hover { background: #f5f5f5; }
+
+        .tab-content { display: none; padding: 12px; }
+        .tab-content.active { display: block; }
+
+        /* ── Order cards ── */
+        .filter-bar {
+            display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;
+        }
+        .filter-btn {
+            padding: 6px 14px; border: none; border-radius: 20px;
+            cursor: pointer; background: #e0e0e0; font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .filter-btn.active { background: #4CAF50; color: white; }
+
+        .order-card {
+            background: white; border-radius: 8px; margin-bottom: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .order-card-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 14px; border-bottom: 1px solid #eee;
+        }
+        .order-card-header h3 { font-size: 1rem; color: #333; }
+        .order-card-header small { color: #999; font-size: 0.78rem; }
+        .status-badge {
+            padding: 3px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: bold;
+        }
+        .status-badge.neu { background: #FFF9C4; color: #F57F17; }
+        .status-badge.erledigt { background: #E8F5E9; color: #2E7D32; }
+        .status-badge.archiviert { background: #EEEEEE; color: #757575; }
+        .order-card-body { padding: 10px 14px; }
+        .order-card-product { font-size: 1rem; margin-bottom: 4px; }
+        .order-card-comment { font-size: 0.82rem; color: #666; font-style: italic; margin-bottom: 8px; }
+        .order-card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .action-btn {
+            padding: 6px 12px; border: none; border-radius: 5px;
+            cursor: pointer; font-size: 0.82rem; transition: opacity 0.2s;
+        }
+        .action-btn:hover { opacity: 0.85; }
+        .btn-done { background: #4CAF50; color: white; }
+        .btn-archive { background: #9e9e9e; color: white; }
+        .btn-undo { background: #FF9800; color: white; }
+        .btn-delete { background: #f44336; color: white; }
+        .no-orders { text-align: center; padding: 30px; color: #999; font-size: 0.9rem; }
+
+        /* ── Management ── */
+        .mgmt-card {
+            background: white; border-radius: 8px; margin-bottom: 14px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1); overflow: hidden;
+        }
+        .mgmt-card-header {
+            background: #4CAF50; color: white;
+            padding: 10px 14px; font-size: 1rem; font-weight: bold;
+        }
+        .mgmt-card-body { padding: 14px; }
+        .add-form { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+        .add-form input, .add-form select {
+            flex: 1; min-width: 100px; padding: 8px 10px;
+            border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem;
+        }
+        .add-form input:focus, .add-form select:focus { outline: none; border-color: #4CAF50; }
+        .btn-add {
+            padding: 8px 16px; background: #4CAF50; color: white;
+            border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;
+        }
+        .btn-add:hover { background: #45a049; }
+
+        .list-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 0; border-bottom: 1px solid #eee;
+        }
+        .list-item:last-child { border-bottom: none; }
+        .list-item-info { flex: 1; }
+        .list-item-info strong { display: block; font-size: 0.95rem; }
+        .list-item-info small { color: #666; font-size: 0.8rem; }
+        .list-item-actions { display: flex; gap: 6px; align-items: center; }
+        .price-input {
+            width: 75px; padding: 5px 8px;
+            border: 1px solid #ddd; border-radius: 5px; font-size: 0.85rem;
+        }
+        .btn-price {
+            padding: 5px 10px; background: #2196F3; color: white;
+            border: none; border-radius: 5px; cursor: pointer; font-size: 0.82rem;
+        }
+        .btn-del {
+            padding: 5px 10px; background: #f44336; color: white;
+            border: none; border-radius: 5px; cursor: pointer; font-size: 0.82rem;
+        }
+
+        /* ── Settings ── */
+        .settings-form { max-width: 380px; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; margin-bottom: 5px; color: #555; font-size: 0.9rem; }
+        .form-group input {
+            width: 100%; padding: 9px 12px;
+            border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;
+        }
+        .form-group input:focus { outline: none; border-color: #4CAF50; }
+        .btn-save {
+            padding: 10px 20px; background: #4CAF50; color: white;
+            border: none; border-radius: 6px; cursor: pointer; font-size: 0.95rem;
+        }
+        .btn-danger {
+            padding: 10px 20px; background: #f44336; color: white;
+            border: none; border-radius: 6px; cursor: pointer; font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        /* ── Flash ── */
+        .flash-msg {
+            position: fixed; bottom: 20px; left: 50%;
+            transform: translateX(-50%);
+            background: #4CAF50; color: white;
+            padding: 10px 20px; border-radius: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            z-index: 9999; animation: fadeOut 3s forwards;
+            white-space: nowrap; font-size: 0.9rem;
+        }
+        .flash-msg.error { background: #f44336; }
+        @keyframes fadeOut { 0%{opacity:1} 70%{opacity:1} 100%{opacity:0} }
+
+        @media (max-width: 480px) {
+            .add-form { flex-direction: column; }
+            .add-form input, .add-form select, .btn-add { width: 100%; flex: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>⚙️ Admin-Panel</h1>
+    <div class="header-links">
+        <a href="index.html">Bestellseite</a>
+        <button onclick="doLogout()">Logout</button>
+    </div>
+</div>
+
+<div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('essen')">🍽️ Essen</button>
+    <button class="tab-btn" onclick="switchTab('trinken')">🍺 Trinken</button>
+    <button class="tab-btn" onclick="switchTab('alle')">📋 Alle Bestellungen</button>
+    <button class="tab-btn" onclick="switchTab('produkte')">🛒 Produkte</button>
+    <button class="tab-btn" onclick="switchTab('einstellungen')">🔧 Einstellungen</button>
+</div>
+
+<!-- Essen orders -->
+<div id="tab-essen" class="tab-content active">
+    <div class="filter-bar" id="filter-essen">
+        <button class="filter-btn active" onclick="setFilter('essen','all',this)">Alle</button>
+        <button class="filter-btn" onclick="setFilter('essen','neu',this)">Neu</button>
+        <button class="filter-btn" onclick="setFilter('essen','erledigt',this)">Erledigt</button>
+        <button class="filter-btn" onclick="setFilter('essen','archiviert',this)">Archiviert</button>
+    </div>
+    <div id="orders-essen"></div>
+</div>
+
+<!-- Trinken orders -->
+<div id="tab-trinken" class="tab-content">
+    <div class="filter-bar" id="filter-trinken">
+        <button class="filter-btn active" onclick="setFilter('trinken','all',this)">Alle</button>
+        <button class="filter-btn" onclick="setFilter('trinken','neu',this)">Neu</button>
+        <button class="filter-btn" onclick="setFilter('trinken','erledigt',this)">Erledigt</button>
+        <button class="filter-btn" onclick="setFilter('trinken','archiviert',this)">Archiviert</button>
+    </div>
+    <div id="orders-trinken"></div>
+</div>
+
+<!-- All orders -->
+<div id="tab-alle" class="tab-content">
+    <div class="filter-bar" id="filter-alle">
+        <button class="filter-btn active" onclick="setFilter('alle','all',this)">Alle</button>
+        <button class="filter-btn" onclick="setFilter('alle','neu',this)">Neu</button>
+        <button class="filter-btn" onclick="setFilter('alle','erledigt',this)">Erledigt</button>
+        <button class="filter-btn" onclick="setFilter('alle','archiviert',this)">Archiviert</button>
+    </div>
+    <div id="orders-alle"></div>
+</div>
+
+<!-- Produkte & Kategorien -->
+<div id="tab-produkte" class="tab-content">
+    <!-- Categories -->
+    <div class="mgmt-card">
+        <div class="mgmt-card-header">Kategorien</div>
+        <div class="mgmt-card-body">
+            <div class="add-form">
+                <input type="text" id="newCatName" placeholder="Kategoriename">
+                <button class="btn-add" onclick="addCategory()">+ Hinzufügen</button>
+            </div>
+            <div id="categoryList"></div>
+        </div>
+    </div>
+    <!-- Products -->
+    <div class="mgmt-card">
+        <div class="mgmt-card-header">Produkte</div>
+        <div class="mgmt-card-body">
+            <div class="add-form">
+                <input type="text" id="newProdName" placeholder="Produktname">
+                <select id="newProdCat"></select>
+                <input type="number" id="newProdPrice" placeholder="Preis €" step="0.01" min="0">
+                <button class="btn-add" onclick="addProduct()">+ Hinzufügen</button>
+            </div>
+            <div id="productList"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Settings -->
+<div id="tab-einstellungen" class="tab-content">
+    <div class="mgmt-card">
+        <div class="mgmt-card-header">Einstellungen</div>
+        <div class="mgmt-card-body">
+            <div class="settings-form">
+                <div class="form-group">
+                    <label>Neues Admin-Passwort:</label>
+                    <input type="password" id="newPass" placeholder="Neues Passwort">
+                </div>
+                <div class="form-group">
+                    <label>Passwort bestätigen:</label>
+                    <input type="password" id="newPass2" placeholder="Passwort wiederholen">
+                </div>
+                <button class="btn-save" onclick="changePassword()">Passwort speichern</button>
+            </div>
+            <hr style="margin:20px 0; border:none; border-top:1px solid #eee">
+            <div>
+                <p style="color:#666;font-size:0.85rem;margin-bottom:10px">
+                    Erledigte und archivierte Bestellungen entfernen:
+                </p>
+                <button class="btn-danger" onclick="cleanupOrders()">🗑️ Abgeschlossene Bestellungen löschen</button>
+            </div>
+            <hr style="margin:20px 0; border:none; border-top:1px solid #eee">
+            <div>
+                <p style="color:#666;font-size:0.85rem;margin-bottom:10px">
+                    Produkte und Kategorien auf Standard zurücksetzen:
+                </p>
+                <button class="btn-danger" onclick="resetData()">🔄 Produkte zurücksetzen</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /* ─── Auth guard ─── */
+    if (localStorage.getItem('pbs_admin_auth') !== '1') {
+        window.location.href = 'admin-login.html';
+    }
+
+    function doLogout() {
+        localStorage.removeItem('pbs_admin_auth');
+        window.location.href = 'admin-login.html';
+    }
+
+    /* ─── Data helpers ─── */
+    const getOrders     = () => JSON.parse(localStorage.getItem('pbs_orders')     || '[]');
+    const saveOrders    = o  => localStorage.setItem('pbs_orders', JSON.stringify(o));
+    const getProducts   = () => JSON.parse(localStorage.getItem('pbs_products')   || '[]');
+    const saveProducts  = p  => localStorage.setItem('pbs_products', JSON.stringify(p));
+    const getCategories = () => JSON.parse(localStorage.getItem('pbs_categories') || '[]');
+    const saveCategories= c  => localStorage.setItem('pbs_categories', JSON.stringify(c));
+
+    /* ─── Tab switching ─── */
+    let activeTab = 'essen';
+    const activeFilters = { essen: 'all', trinken: 'all', alle: 'all' };
+
+    function switchTab(name) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        document.getElementById('tab-' + name).classList.add('active');
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            if (btn.textContent.toLowerCase().includes(name === 'alle' ? 'alle' :
+                    name === 'essen' ? 'essen' : name === 'trinken' ? 'trinken' :
+                    name === 'produkte' ? 'produkte' : 'einstell')) {
+                btn.classList.add('active');
+            }
+        });
+        activeTab = name;
+        if (name === 'essen' || name === 'trinken' || name === 'alle') renderOrders(name);
+        else if (name === 'produkte') renderManagement();
+    }
+
+    // Fix tab activation – simpler approach
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        const tabs = ['essen','trinken','alle','produkte','einstellungen'];
+        btn.dataset.tab = tabs[i];
+        btn.onclick = () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('tab-' + tabs[i]).classList.add('active');
+            activeTab = tabs[i];
+            if (['essen','trinken','alle'].includes(tabs[i])) renderOrders(tabs[i]);
+            else if (tabs[i] === 'produkte') renderManagement();
+        };
+    });
+
+    /* ─── Filters ─── */
+    function setFilter(tab, status, btn) {
+        activeFilters[tab] = status;
+        document.querySelectorAll(`#filter-${tab} .filter-btn`).forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderOrders(tab);
+    }
+
+    /* ─── Render orders ─── */
+    function getCategoryForKat(katId) {
+        const cats = getCategories();
+        const cat = cats.find(c => c.id === katId);
+        return cat ? cat.name.toLowerCase() : '';
+    }
+
+    function getCatIdByName(name) {
+        const cats = getCategories();
+        const n = name.toLowerCase();
+        const cat = cats.find(c => c.name.toLowerCase() === n);
+        return cat ? cat.id : null;
+    }
+
+    function renderOrders(tab) {
+        let orders = getOrders().sort((a, b) => new Date(b.zeitpunkt) - new Date(a.zeitpunkt));
+        const filter = activeFilters[tab] || 'all';
+
+        // Filter by category type
+        if (tab === 'essen') {
+            const essenId = getCatIdByName('essen');
+            orders = orders.filter(o => o.kategorie === essenId || getCategoryForKat(o.kategorie) === 'essen');
+        } else if (tab === 'trinken') {
+            const trinkId = getCatIdByName('trinken');
+            orders = orders.filter(o => o.kategorie === trinkId || getCategoryForKat(o.kategorie) === 'trinken');
+        }
+
+        // Filter by status
+        if (filter !== 'all') {
+            orders = orders.filter(o => o.status === filter);
+        }
+
+        const container = document.getElementById('orders-' + tab);
+        container.innerHTML = '';
+
+        if (!orders.length) {
+            container.innerHTML = '<div class="no-orders">Keine Bestellungen gefunden</div>';
+            return;
+        }
+
+        orders.forEach(o => {
+            const card = document.createElement('div');
+            card.className = 'order-card';
+            const t = o.zeitpunkt.replace('T', ' ').substring(0, 16);
+            const statusLabel = o.status === 'neu' ? 'Neu' : o.status === 'erledigt' ? 'Erledigt' : 'Archiviert';
+
+            let actions = '';
+            if (o.status === 'neu') {
+                actions += `<button class="action-btn btn-done" onclick="updateStatus(${o.id},'erledigt')">✓ Erledigt</button>`;
+            } else if (o.status === 'erledigt') {
+                actions += `<button class="action-btn btn-archive" onclick="updateStatus(${o.id},'archiviert')">📦 Archivieren</button>`;
+                actions += `<button class="action-btn btn-undo" onclick="updateStatus(${o.id},'neu')">↩ Zurück</button>`;
+            } else if (o.status === 'archiviert') {
+                actions += `<button class="action-btn btn-undo" onclick="updateStatus(${o.id},'neu')">↩ Reaktivieren</button>`;
+            }
+            actions += `<button class="action-btn btn-delete" onclick="deleteOrder(${o.id})">🗑️ Löschen</button>`;
+
+            card.innerHTML = `
+                <div class="order-card-header">
+                    <div>
+                        <h3>Tisch ${escHtml(String(o.tisch))}</h3>
+                        <small>${t}</small>
+                    </div>
+                    <span class="status-badge ${o.status}">${statusLabel}</span>
+                </div>
+                <div class="order-card-body">
+                    <div class="order-card-product">${o.menge}× <strong>${escHtml(o.produkt)}</strong></div>
+                    ${o.kommentar ? `<div class="order-card-comment">💬 ${escHtml(o.kommentar)}</div>` : ''}
+                    <div class="order-card-actions">${actions}</div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function updateStatus(id, newStatus) {
+        const orders = getOrders();
+        const o = orders.find(x => x.id === id);
+        if (!o) return;
+        o.status = newStatus;
+        if (newStatus === 'erledigt') o.erledigt_um = new Date().toISOString();
+        saveOrders(orders);
+        renderOrders(activeTab);
+        showFlash('Status aktualisiert');
+    }
+
+    function deleteOrder(id) {
+        if (!confirm('Bestellung wirklich löschen?')) return;
+        saveOrders(getOrders().filter(o => o.id !== id));
+        renderOrders(activeTab);
+        showFlash('Bestellung gelöscht');
+    }
+
+    /* ─── Management ─── */
+    function renderManagement() {
+        renderCategoryList();
+        renderProductList();
+        renderProductCatSelect();
+    }
+
+    function renderCategoryList() {
+        const cats = getCategories();
+        const list = document.getElementById('categoryList');
+        list.innerHTML = '';
+        cats.forEach(cat => {
+            const div = document.createElement('div');
+            div.className = 'list-item';
+            div.innerHTML = `
+                <div class="list-item-info">
+                    <strong>${escHtml(cat.name)}</strong>
+                    <small>ID: ${cat.id}</small>
+                </div>
+                <div class="list-item-actions">
+                    <button class="btn-del" onclick="deleteCategory(${cat.id})">Löschen</button>
+                </div>
+            `;
+            list.appendChild(div);
+        });
+    }
+
+    function renderProductList() {
+        const prods = getProducts();
+        const cats = getCategories();
+        const list = document.getElementById('productList');
+        list.innerHTML = '';
+        prods.forEach(p => {
+            const cat = cats.find(c => c.id === p.kategorie);
+            const div = document.createElement('div');
+            div.className = 'list-item';
+            div.innerHTML = `
+                <div class="list-item-info">
+                    <strong>${escHtml(p.name)}</strong>
+                    <small>${cat ? escHtml(cat.name) : 'Unbekannt'} – ${p.price.toFixed(2)} €</small>
+                </div>
+                <div class="list-item-actions">
+                    <input type="number" class="price-input" id="price-${p.id}" value="${p.price}" step="0.01" min="0">
+                    <button class="btn-price" onclick="updatePrice(${p.id})">€ Ändern</button>
+                    <button class="btn-del" onclick="deleteProduct(${p.id})">Löschen</button>
+                </div>
+            `;
+            list.appendChild(div);
+        });
+    }
+
+    function renderProductCatSelect() {
+        const cats = getCategories();
+        const sel = document.getElementById('newProdCat');
+        sel.innerHTML = '<option value="">Kategorie…</option>';
+        cats.forEach(c => {
+            const opt = document.createElement('option');
+            opt.value = c.id;
+            opt.textContent = c.name;
+            sel.appendChild(opt);
+        });
+    }
+
+    function addCategory() {
+        const name = document.getElementById('newCatName').value.trim();
+        if (!name) { showFlash('Bitte einen Namen eingeben', 'error'); return; }
+        const cats = getCategories();
+        const maxId = cats.reduce((m, c) => Math.max(m, c.id), 0);
+        cats.push({ id: maxId + 1, name });
+        saveCategories(cats);
+        document.getElementById('newCatName').value = '';
+        renderCategoryList();
+        renderProductCatSelect();
+        showFlash('Kategorie hinzugefügt');
+    }
+
+    function deleteCategory(id) {
+        if (!confirm('Kategorie und alle zugehörigen Produkte löschen?')) return;
+        saveCategories(getCategories().filter(c => c.id !== id));
+        saveProducts(getProducts().filter(p => p.kategorie !== id));
+        renderManagement();
+        showFlash('Kategorie gelöscht');
+    }
+
+    function addProduct() {
+        const name  = document.getElementById('newProdName').value.trim();
+        const catId = parseInt(document.getElementById('newProdCat').value);
+        const price = parseFloat(document.getElementById('newProdPrice').value);
+        if (!name)  { showFlash('Bitte einen Namen eingeben', 'error'); return; }
+        if (!catId) { showFlash('Bitte eine Kategorie auswählen', 'error'); return; }
+        if (isNaN(price) || price < 0) { showFlash('Bitte einen gültigen Preis eingeben', 'error'); return; }
+        const prods = getProducts();
+        const maxId = prods.reduce((m, p) => Math.max(m, p.id), 0);
+        prods.push({ id: maxId + 1, name, kategorie: catId, price });
+        saveProducts(prods);
+        document.getElementById('newProdName').value = '';
+        document.getElementById('newProdPrice').value = '';
+        renderProductList();
+        showFlash('Produkt hinzugefügt');
+    }
+
+    function updatePrice(id) {
+        const val = parseFloat(document.getElementById('price-' + id).value);
+        if (isNaN(val) || val < 0) { showFlash('Ungültiger Preis', 'error'); return; }
+        const prods = getProducts();
+        const p = prods.find(x => x.id === id);
+        if (!p) return;
+        p.price = val;
+        saveProducts(prods);
+        renderProductList();
+        showFlash('Preis aktualisiert');
+    }
+
+    function deleteProduct(id) {
+        if (!confirm('Produkt wirklich löschen?')) return;
+        saveProducts(getProducts().filter(p => p.id !== id));
+        renderProductList();
+        showFlash('Produkt gelöscht');
+    }
+
+    /* ─── Settings ─── */
+    function changePassword() {
+        const p1 = document.getElementById('newPass').value;
+        const p2 = document.getElementById('newPass2').value;
+        if (!p1)       { showFlash('Passwort darf nicht leer sein', 'error'); return; }
+        if (p1 !== p2) { showFlash('Passwörter stimmen nicht überein', 'error'); return; }
+        localStorage.setItem('pbs_admin_pass', p1);
+        document.getElementById('newPass').value = '';
+        document.getElementById('newPass2').value = '';
+        showFlash('Passwort geändert');
+    }
+
+    function cleanupOrders() {
+        if (!confirm('Alle erledigten und archivierten Bestellungen löschen?')) return;
+        saveOrders(getOrders().filter(o => o.status === 'neu'));
+        showFlash('Abgeschlossene Bestellungen gelöscht');
+        if (['essen','trinken','alle'].includes(activeTab)) renderOrders(activeTab);
+    }
+
+    async function resetData() {
+        if (!confirm('Alle Produkte und Kategorien auf den Standardstand zurücksetzen? (Bestellungen bleiben erhalten)')) return;
+        try {
+            const [catRes, prodRes] = await Promise.all([fetch('data/categories.json'), fetch('data/products.json')]);
+            const cats = await catRes.json();
+            const allProds = await prodRes.json();
+            const prods = allProds.filter(p => p.price > 0);
+            saveCategories(cats);
+            saveProducts(prods);
+            showFlash('Produkte zurückgesetzt');
+            if (activeTab === 'produkte') renderManagement();
+        } catch {
+            showFlash('Fehler beim Laden der Standarddaten', 'error');
+        }
+    }
+
+    /* ─── Cross-tab sync ─── */
+    window.addEventListener('storage', e => {
+        if (e.key === 'pbs_orders' && ['essen','trinken','alle'].includes(activeTab)) {
+            renderOrders(activeTab);
+        }
+        if ((e.key === 'pbs_products' || e.key === 'pbs_categories') && activeTab === 'produkte') {
+            renderManagement();
+        }
+    });
+
+    /* ─── Flash ─── */
+    function showFlash(msg, type = 'success') {
+        document.querySelectorAll('.flash-msg').forEach(el => el.remove());
+        const el = document.createElement('div');
+        el.className = `flash-msg ${type}`;
+        el.textContent = msg;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 3000);
+    }
+
+    /* ─── Helpers ─── */
+    function escHtml(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+                        .replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+    }
+
+    /* ─── Initial render ─── */
+    renderOrders('essen');
+</script>
+</body>
+</html>
