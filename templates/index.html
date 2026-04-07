@@ -254,6 +254,20 @@
             background-color: #1976D2;
         }
 
+        .print-receipt-btn {
+            background-color: #FF9800;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .print-receipt-btn:hover {
+            background-color: #F57C00;
+        }
+
         .order-item {
             position: relative;
             padding: 15px;
@@ -640,6 +654,7 @@
     <div class="header">
         <h1>Bestellungen - Tisch {{ session['current_table'] }}</h1>
         <div class="header-buttons">
+            <a href="{{ url_for('print_receipt') }}" class="print-receipt-btn" title="Bon drucken (Android-Druckdienst / CUPS)">🖨️ Bon</a>
             <a href="{{ url_for('new_table') }}" class="new-table-btn">Neuer Tisch</a>
             <a href="{{ url_for('admin_login') }}" class="admin-link">Admin</a>
         </div>

@@ -55,7 +55,7 @@ class Config:
     MAX_REQUESTS = 1000
     MAX_REQUESTS_JITTER = 50
     
-    # Drucker-Konfiguration
+    # Drucker-Konfiguration (USB – nur als Fallback verwendet)
     PRINTER_VENDOR_ID = 0x04b8  # Epson Vendor ID
     PRINTER_PRODUCT_ID = 0x0e15  # TM-T20II
     PRINTER_INTERFACE = 0
@@ -63,6 +63,14 @@ class Config:
     PRINTER_PAPER_WIDTH = 32
     PRINTER_RETRY_COUNT = 3
     PRINTER_RETRY_DELAY = 1
+
+    # CUPS-Netzwerkdrucker-Konfiguration
+    # Der Android-Druckdienst sowie klassische CUPS-Server werden über
+    # diese Einstellungen angesprochen.
+    CUPS_SERVER = os.environ.get('CUPS_SERVER', '192.168.178.182')
+    CUPS_PORT = int(os.environ.get('CUPS_PORT', '631'))
+    # Leer lassen, um den Standard-Drucker des CUPS-Servers zu verwenden.
+    CUPS_PRINTER_NAME = os.environ.get('CUPS_PRINTER_NAME', '')
     
     # Logging-Konfiguration
     LOG_LEVEL = logging.INFO
