@@ -80,16 +80,20 @@ order_formatter = OrderFormatter(Config.PRINTER_PAPER_WIDTH)
 
 
 def start_print_worker():
-    """Startet den Drucker-Worker"""
+    """Startet den Drucker-Worker (optional).
+
+    Printing is handled client-side via static/receipt.html.
+    The USB printer worker is started when available but is not required.
+    """
     try:
         if print_queue_manager.start_worker():
             logger.info("Drucker-Worker erfolgreich gestartet")
             return True
         else:
-            logger.error("Konnte Drucker-Worker nicht starten")
+            logger.warning("Drucker-Worker nicht gestartet – Browser-Druck weiterhin verfügbar")
             return False
     except Exception as e:
-        logger.error(f"Fehler beim Starten des Drucker-Workers: {str(e)}")
+        logger.warning(f"Fehler beim Starten des Drucker-Workers: {str(e)} – Browser-Druck weiterhin verfügbar")
         return False
 
 
