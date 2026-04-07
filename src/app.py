@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.config import Config
 from src.database import DataStorage
-from src.printer import CupsPrinterManager, PrintQueueManager
+from src.printer import PrinterManager, PrintQueueManager
 from src.orders import OrderManager, OrderFormatter
 from src.utils import setup_logging
 
@@ -62,11 +62,10 @@ order_manager = OrderManager(
     Config.ORDERS_FILE
 )
 
-# Initialize CUPS printer manager (replaces direct USB connection)
-printer_manager = CupsPrinterManager(
-    server=Config.CUPS_SERVER,
-    port=Config.CUPS_PORT,
-    printer_name=Config.CUPS_PRINTER_NAME,
+# Initialize printer manager
+printer_manager = PrinterManager.get_instance(
+    Config.PRINTER_VENDOR_ID,
+    Config.PRINTER_PRODUCT_ID
 )
 
 # Initialize print queue manager
@@ -81,28 +80,20 @@ order_formatter = OrderFormatter(Config.PRINTER_PAPER_WIDTH)
 
 
 def start_print_worker():
-    """Startet den Drucker-Worker.
+    """Startet den Drucker-Worker (optional).
 
-    Gibt *True* zurück wenn der Worker gestartet wurde.
-    Die Anwendung läuft auch ohne Drucker weiter – Bestellungen können
-    dann über die Browser-Druckfunktion (Android-Druckdienst) gedruckt
-    werden.
+    Printing is handled client-side via static/receipt.html.
+    The USB printer worker is started when available but is not required.
     """
     try:
         if print_queue_manager.start_worker():
-            logger.info("CUPS-Drucker-Worker erfolgreich gestartet (Server: %s:%d)", Config.CUPS_SERVER, Config.CUPS_PORT)
+            logger.info("Drucker-Worker erfolgreich gestartet")
             return True
         else:
-            logger.warning(
-                "CUPS-Drucker-Worker konnte nicht gestartet werden – "
-                "Browser-Druck (Android-Druckdienst) steht weiterhin zur Verfügung"
-            )
+            logger.warning("Drucker-Worker nicht gestartet – Browser-Druck weiterhin verfügbar")
             return False
     except Exception as e:
-        logger.warning(
-            "Fehler beim Starten des CUPS-Drucker-Workers: %s – "
-            "Browser-Druck steht weiterhin zur Verfügung", e
-        )
+        logger.warning(f"Fehler beim Starten des Drucker-Workers: {str(e)} – Browser-Druck weiterhin verfügbar")
         return False
 
 
@@ -148,9 +139,11 @@ def create_app():
 
 
 if __name__ == '__main__':
-    # Start printer worker (non-fatal if CUPS unavailable)
-    start_print_worker()
-
+    # Start printer worker
+    if not start_print_worker():
+        logger.error("Konnte Drucker-Worker nicht starten - Programm wird beendet")
+        sys.exit(1)
+    
     # Run app
     logger.info("Starte PartyBestellsystem Server")
     socketio.run(

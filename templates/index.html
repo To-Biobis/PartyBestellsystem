@@ -654,7 +654,7 @@
     <div class="header">
         <h1>Bestellungen - Tisch {{ session['current_table'] }}</h1>
         <div class="header-buttons">
-            <a href="{{ url_for('print_receipt') }}" class="print-receipt-btn" title="Bon drucken (Android-Druckdienst / CUPS)">🖨️ Bon</a>
+            <a href="{{ url_for('static', filename='receipt.html') }}" class="print-receipt-btn" title="Bon drucken (Android-Druckdienst)">🖨️ Bon</a>
             <a href="{{ url_for('new_table') }}" class="new-table-btn">Neuer Tisch</a>
             <a href="{{ url_for('admin_login') }}" class="admin-link">Admin</a>
         </div>
@@ -935,6 +935,17 @@
                 kommentar: item.kommentar || ''
             }));
 
+            // Snapshot für den statischen Bon: Preis und Name aus den DOM-Elementen lesen
+            const receiptItems = Array.from(cart.entries()).map(([produktId, item]) => {
+                const el = document.querySelector(`[data-product-id="${produktId}"]`);
+                return {
+                    name: item.name,
+                    menge: item.menge,
+                    kommentar: item.kommentar || '',
+                    price: el ? parseFloat(el.dataset.productPrice) : 0
+                };
+            });
+
             console.log('Sende Bestellungen:', orders);
 
             fetch('/orders', {
@@ -954,6 +965,19 @@
             .then(data => {
                 console.log('Bestellungen verarbeitet:', data);
                 if (data.success) {
+                    // Speichere Bon-Daten für die statische Druckseite
+                    try {
+                        const tisch = '{{ session["current_table"] }}';
+                        const bonData = {
+                            tisch: tisch,
+                            zeitpunkt: new Date().toLocaleString('de-DE'),
+                            items: receiptItems
+                        };
+                        localStorage.setItem('bon_data', JSON.stringify(bonData));
+                    } catch (e) {
+                        console.warn('Konnte Bon-Daten nicht speichern:', e);
+                    }
+
                     showFlash(data.message || 'Bestellungen erfolgreich');
                     cart.clear();
                     saveCart(); // Speichere leeren Warenkorb

@@ -14,12 +14,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from src.app import app, socketio, start_print_worker, logger
 
 if __name__ == '__main__':
-    # Start printer worker (non-fatal – browser/Android print still works without CUPS)
+    # Printing is now handled client-side via static/receipt.html (browser / Android print service).
+    # The USB printer worker is optional – start it if available but don't exit when it's not.
     if not start_print_worker():
-        logger.warning(
-            "CUPS-Drucker-Worker nicht gestartet. "
-            "Der Android-Druckdienst steht weiterhin zur Verfügung."
-        )
+        logger.warning("Drucker-Worker nicht gestartet – Browser-Druck steht weiterhin zur Verfügung")
 
     # Run app
     logger.info("Starte PartyBestellsystem Server")
